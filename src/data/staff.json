@@ -1,0 +1,35 @@
+{
+  "rector": {
+    "name": "Professeur Victor Kalunga Tshikala",
+    "title": "Recteur de l'Université de Kalemie",
+    "image": "",
+    "citation": "À l'Université de Kalemie, la science ne vaut que si elle s'accompagne d'une profonde conscience morale et humaine. Nous formons les architectes de l'avenir du Tanganyika et du Congo tout entier.",
+    "welcomeMessage": "Chers étudiants, chercheurs, partenaires et visiteurs,\n\nC'est avec une fierté renouvelée que je vous souhaite la bienvenue sur le portail officiel de l'Université de Kalemie (UNIKAL). Établie au cœur de la chef-lieu de la province du Tanganyika, en République Démocratique du Congo, notre université publique se dresse comme un phare d'excellence académique, d'innovation et d'engagement citoyen.\n\nFidèles à notre devise latine 'Scientia Splendet Conscientia', nous avons la ferme conviction que le savoir scientifique doit s'allier à des valeurs morales et une conscience humaniste. Nos six facultés, couvrant la santé, le droit, l'économie, les sciences appliquées, l'agronomie et les lettres, sont structurées pour répondre de manière pragmatique aux besoins socio-économiques de notre région et de notre pays.\n\nNotre spécificité majeure, nos Cliniques Universitaires, atteste de notre dévouement à allier enseignement de pointe et services indispensables à notre communauté. De même, nos partenariats inter-universitaires, notamment avec l'Université de Kinshasa (UNIKIN), renforcent notre excellence académique.\n\nQue vous soyez un bachelier désireux de bâtir un parcours universitaire d'exception, un chercheur à la recherche de synergies ou un partenaire institutionnel, sachez que l'UNIKAL est votre maison de savoir. Ensemble, faisons briller la lumière de la connaissance au bord du majestueux Lac Tanganyika.\n\nScientia Splendet Conscientia !"
+  },
+  "managementCommittee": [
+    {
+      "name": "Professeur Victor Kalunga Tshikala",
+      "role": "Recteur",
+      "description": "Responsable de la direction générale, académique et administrative de l'université.",
+      "image": ""
+    },
+    {
+      "name": "Professeur Dr. Jean-Paul Kibwe",
+      "role": "Secrétaire Général Académique",
+      "description": "Supervise les programmes de formation, la planification pédagogique, les examens et le LMD.",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+    },
+    {
+      "name": "Professeur Philomène Mwange",
+      "role": "Secrétaire Général Administratif",
+      "description": "Gère le personnel enseignant, technique et administratif, ainsi que le patrimoine de l'institution.",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+    },
+    {
+      "name": "Chef de Travaux Augustin Ilunga",
+      "role": "Administrateur de Budget",
+      "description": "Responsable de la planification financière, des budgets, de la comptabilité et des investissements logistiques.",
+      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+    }
+  ]
+}

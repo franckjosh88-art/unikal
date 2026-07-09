@@ -1,0 +1,9 @@
+{
+  "name": "UNIKAL E-Learning",
+  "description": "Plateforme LMS moderne de gestion de l'apprentissage de l'Université de Kalemie (UNIKAL), optimisée pour connexion faible et usage mobile-first.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,234 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Helper to get role of authenticated user
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isStudent() {
+      return isSignedIn() && getUserRole() == 'student';
+    }
+
+    function isTeacher() {
+      return isSignedIn() && 
+             getUserRole() == 'teacher' && 
+             (!('status' in get(/databases/$(database)/documents/users/$(request.auth.uid)).data) || 
+              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'approved');
+    }
+
+    function isParent() {
+      return isSignedIn() && getUserRole() == 'parent';
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        getUserRole() == 'admin' || 
+        request.auth.token.email == "rukomezabachishoga25@gmail.com"
+      );
+    }
+
+    // Get parent studentId mapping
+    function getParentStudentId() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.studentId;
+    }
+
+    // Helper for checking incoming data shape
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Helper for checking existing data shape
+    function existing() {
+      return resource.data;
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 1. Users Collection
+    // - Read profile: any signed-in user
+    // - Edit: only own profile, and cannot change role or status unless admin
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isOwner(userId) && (
+        (!('role' in incoming()) || incoming().role == 'student') ||
+        (incoming().role == 'teacher' && incoming().status == 'pending')
+      ) || isAdmin();
+      allow update: if (isOwner(userId) && 
+                       incoming().role == existing().role && 
+                       (!('status' in incoming()) || incoming().status == existing().status)) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // 2. Courses Collection
+    // - Read courses: any signed-in user
+    // - Write: only teacher of this course or admin
+    match /courses/{courseId} {
+      allow read: if isSignedIn();
+      allow create: if (isTeacher() && incoming().teacherId == request.auth.uid) || isAdmin();
+      allow update: if (isTeacher() && existing().teacherId == request.auth.uid) || isAdmin();
+      allow delete: if (isTeacher() && existing().teacherId == request.auth.uid) || isAdmin();
+    }
+
+    // 3. Assignments Collection
+    // - Read: student, teacher, admin, or parent of the child (matches parent studentId)
+    // - Create: teacher of the course or admin
+    // - Update: student submits own assignment (submission fields only), teacher of the course, or admin
+    match /assignments/{assignmentId} {
+      allow read: if isSignedIn() && (
+        isStudent() ||
+        isTeacher() ||
+        isAdmin() ||
+        (isParent() && (!('studentId' in resource.data) || resource.data.studentId == getParentStudentId()))
+      );
+      allow create: if (isTeacher() && get(/databases/$(database)/documents/courses/$(incoming().courseId)).data.teacherId == request.auth.uid) || isAdmin();
+      allow update: if (
+        (isStudent() && (
+          (!('studentId' in existing()) || existing().studentId == request.auth.uid) &&
+          incoming().diff(existing()).affectedKeys().hasOnly(['submitted', 'submissionText', 'submissionDate', 'submissionFile'])
+        )) ||
+        (isTeacher() && (
+          get(/databases/$(database)/documents/courses/$(existing().courseId)).data.teacherId == request.auth.uid
+        )) ||
+        isAdmin()
+      );
+      allow delete: if (isTeacher() && get(/databases/$(database)/documents/courses/$(existing().courseId)).data.teacherId == request.auth.uid) || isAdmin();
+    }
+
+    // 4. Quizzes Collection
+    // - Read: student, teacher, admin, or parent of the child
+    // - Create: teacher of course or admin
+    // - Update: student submits own score (score fields only), teacher of course, or admin
+    match /quizzes/{quizId} {
+      allow read: if isSignedIn() && (
+        isStudent() ||
+        isTeacher() ||
+        isAdmin() ||
+        (isParent() && (!('studentId' in resource.data) || resource.data.studentId == getParentStudentId()))
+      );
+      allow create: if (isTeacher() && get(/databases/$(database)/documents/courses/$(incoming().courseId)).data.teacherId == request.auth.uid) || isAdmin();
+      allow update: if (
+        (isStudent() && (
+          (!('studentId' in existing()) || existing().studentId == request.auth.uid) &&
+          incoming().diff(existing()).affectedKeys().hasOnly(['submitted', 'score'])
+        )) ||
+        (isTeacher() && (
+          get(/databases/$(database)/documents/courses/$(existing().courseId)).data.teacherId == request.auth.uid
+        )) ||
+        isAdmin()
+      );
+      allow delete: if (isTeacher() && get(/databases/$(database)/documents/courses/$(existing().courseId)).data.teacherId == request.auth.uid) || isAdmin();
+    }
+
+    // 5. Messages Collection
+    // - Read/write: only sender and receiver involved, or admin
+    match /messages/{messageId} {
+      allow read: if isSignedIn() && (
+        resource.data.senderId == request.auth.uid || 
+        resource.data.receiverId == request.auth.uid ||
+        isAdmin()
+      );
+      allow create: if isSignedIn() && (
+        incoming().senderId == request.auth.uid ||
+        isAdmin()
+      );
+      allow update: if isSignedIn() && (
+        (existing().senderId == request.auth.uid && incoming().senderId == request.auth.uid) ||
+        (existing().receiverId == request.auth.uid && incoming().diff(existing()).affectedKeys().hasOnly(['read'])) ||
+        isAdmin()
+      );
+      allow delete: if isSignedIn() && (
+        existing().senderId == request.auth.uid || 
+        existing().receiverId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+
+    // 6. Library Collection
+    // - Read: all connected
+    // - Create/Delete: teacher or admin
+    // - Update: teacher, admin, or student incrementing download stats
+    match /library/{libraryId} {
+      allow read: if isSignedIn();
+      allow create: if isTeacher() || isAdmin();
+      allow update: if (
+        isTeacher() || 
+        isAdmin() ||
+        (isStudent() && incoming().diff(existing()).affectedKeys().hasOnly(['downloadsCount', 'downloaded']))
+      );
+      allow delete: if isTeacher() || isAdmin();
+    }
+
+    // 7. Announcements Collection
+    // - Read: signed in user, if the announcement is active and targetAudience matches them, or if own announcement, or admin
+    // - Create: admin or approved teacher (as author)
+    // - Update: admin or author (approved teacher)
+    // - Delete: admin or author (approved teacher)
+    match /announcements/{announcementId} {
+      allow read: if isSignedIn() && (
+        isAdmin() || 
+        resource.data.authorId == request.auth.uid ||
+        (
+          (!('isActive' in resource.data) || resource.data.isActive == true) && (
+            resource.data.targetAudience == 'tous' ||
+            (resource.data.targetAudience == 'étudiants' && getUserRole() == 'student') ||
+            (getUserRole() == 'student' && (
+              ('faculty' in get(/databases/$(database)/documents/users/$(request.auth.uid)).data && resource.data.targetAudience == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.faculty) ||
+              ('department' in get(/databases/$(database)/documents/users/$(request.auth.uid)).data && resource.data.targetAudience == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.department)
+            )) ||
+            getUserRole() == 'teacher' ||
+            getUserRole() == 'parent'
+          )
+        )
+      );
+      allow create: if isAdmin() || (
+        isTeacher() && 
+        incoming().authorId == request.auth.uid
+      );
+      allow update: if isAdmin() || (
+        isTeacher() && 
+        existing().authorId == request.auth.uid && 
+        incoming().authorId == request.auth.uid
+      );
+      allow delete: if isAdmin() || (
+        isTeacher() && 
+        existing().authorId == request.auth.uid
+      );
+    }
+
+    // 8. Forum Topics Collection
+    // - Read: all connected
+    // - Create/Update: student, teacher, or admin
+    // - Delete: admin
+    match /forum_topics/{topicId} {
+      allow read: if isSignedIn();
+      allow create: if isStudent() || isTeacher() || isAdmin();
+      allow update: if isStudent() || isTeacher() || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // 9. Forum Posts Collection
+    // - Read: all connected
+    // - Create/Update: student, teacher, or admin
+    // - Delete: admin
+    match /forum_posts/{postId} {
+      allow read: if isSignedIn();
+      allow create: if isStudent() || isTeacher() || isAdmin();
+      allow update: if isStudent() || isTeacher() || isAdmin();
+      allow delete: if isAdmin();
+    }
+  }
+}

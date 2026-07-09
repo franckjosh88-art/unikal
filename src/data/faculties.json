@@ -1,0 +1,201 @@
+[
+  {
+    "id": "sante",
+    "title": "Faculté des Sciences de la Santé",
+    "shortDescription": "Former l'élite médicale de la région, appuyée par nos Cliniques Universitaires d'excellence.",
+    "description": "La Faculté des Sciences de la Santé de l'UNIKAL s'engage à former des professionnels de la santé hautement qualifiés et éthiques. Elle bénéficie de l'appui direct des Cliniques Universitaires de Kalemie pour l'apprentissage pratique et la recherche clinique au plus près des réalités de la province du Tanganyika.",
+    "departments": [
+      "Médecine Générale",
+      "Santé Publique",
+      "Sciences Infirmières"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Médecine (6 ans d'études)",
+        "Licence en Santé Publique (Option Épidémiologie, Santé Communautaire)",
+        "Licence en Sciences Infirmières (Accouchement, Pédiatrie, Enseignement et Administration en soins)"
+      ],
+      "master": [
+        "Master en Santé Publique et Nutrition",
+        "Master en Gestion des Institutions de Santé"
+      ]
+    },
+    "stats": {
+      "students": 450,
+      "teachers": 32,
+      "labs": 3
+    },
+    "features": [
+      "Cliniques Universitaires rattachées pour une immersion clinique complète dès la 3ème année",
+      "Laboratoires de recherche en parasitologie et microbiologie locale",
+      "Partenariats cliniques avec l'Hôpital Général de Référence de Kalemie"
+    ],
+    "iconName": "Activity"
+  },
+  {
+    "id": "economie",
+    "title": "Faculté des Sciences Économiques et de Gestion",
+    "shortDescription": "Former les leaders de demain pour stimuler l'économie et la gestion des ressources de la RDC.",
+    "description": "Cette faculté forme des gestionnaires rigoureux, des économistes d'analyse et des entrepreneurs capables d'impulser le développement socio-économique du bassin du Tanganyika et de la République Démocratique du Congo.",
+    "departments": [
+      "Économie Publique",
+      "Économie de Développement",
+      "Gestion Financière",
+      "Gestion des Entreprises"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Sciences Économiques",
+        "Licence en Gestion Financière",
+        "Licence en Management et Entrepreneuriat"
+      ],
+      "master": [
+        "Master en Économie Appliquée (Microfinance & Développement)",
+        "Master Professionnel en Comptabilité et Audit"
+      ]
+    },
+    "stats": {
+      "students": 620,
+      "teachers": 28,
+      "labs": 1
+    },
+    "features": [
+      "Centre d'Incubation pour les jeunes entrepreneurs du Tanganyika",
+      "Projets de recherche sur l'économie transfrontalière du Lac Tanganyika",
+      "Conférences annuelles sur les opportunités de développement régional"
+    ],
+    "iconName": "TrendingUp"
+  },
+  {
+    "id": "droit",
+    "title": "Faculté des Sciences Juridiques, Politiques et Administratives",
+    "shortDescription": "L'école du droit, de la justice et de la gouvernance administrative publique.",
+    "description": "La faculté propose une formation rigoureuse dans les disciplines du droit (public, privé et économique) ainsi que dans la gestion des institutions publiques et des relations internationales, en promouvant l'état de droit.",
+    "departments": [
+      "Droit Public",
+      "Droit Privé et Judiciaire",
+      "Droit Économique et Social",
+      "Sciences Politiques et Administratives"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Droit Constitutionnel et Administratif",
+        "Licence en Droit Privé et Judiciaire",
+        "Licence en Droit Économique des Affaires",
+        "Licence en Sciences Politiques et Administratives"
+      ],
+      "master": [
+        "Master en Droit International des Affaires",
+        "Master en Administration Publique et Décentralisation"
+      ]
+    },
+    "stats": {
+      "students": 510,
+      "teachers": 24,
+      "labs": 2
+    },
+    "features": [
+      "Clinique Juridique d'aide gratuite aux populations vulnérables de Kalemie",
+      "Tribunal d'apprentissage virtuel pour les procès simulés",
+      "Bibliothèque spécialisée dotée d'ouvrages juridiques récents"
+    ],
+    "iconName": "Scale"
+  },
+  {
+    "id": "appliquees",
+    "title": "Faculté des Sciences Appliquées",
+    "shortDescription": "Innover grâce aux technologies de l'information et à l'ingénierie moderne.",
+    "description": "Axée sur l'innovation et le développement d'infrastructures durables, la Faculté des Sciences Appliquées prépare les futurs ingénieurs et informaticiens à résoudre les défis technologiques de notre société moderne.",
+    "departments": [
+      "Génie Informatique",
+      "Génie Civil",
+      "Génie Électrique"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Génie Informatique (Réseaux, Systèmes, Intelligence Artificielle)",
+        "Licence en Génie Civil (Bâtiments et Travaux Publics)",
+        "Licence en Génie Électrique (Énergies Renouvelables, Électricité Industrielle)"
+      ],
+      "master": [
+        "Master en Ingénierie Réseaux et Cybersécurité",
+        "Master en Énergies Renouvelables et Systèmes Solaires"
+      ]
+    },
+    "stats": {
+      "students": 380,
+      "teachers": 19,
+      "labs": 4
+    },
+    "features": [
+      "Laboratoire d'informatique moderne avec connexion Internet haut débit",
+      "Atelier d'expérimentation en Génie Civil et matériaux",
+      "Club d'innovation technologique géré par les étudiants"
+    ],
+    "iconName": "Cpu"
+  },
+  {
+    "id": "agronomie",
+    "title": "Faculté des Sciences Agronomiques",
+    "shortDescription": "Agriculture durable, sécurité alimentaire et préservation de l'écosystème.",
+    "description": "Dans une province au potentiel agricole immense, notre faculté forme des agronomes capables d'optimiser la production végétale, l'élevage et de valoriser les ressources aquatiques du majestueux Lac Tanganyika.",
+    "departments": [
+      "Phytotechnie (Production Végétale)",
+      "Zootechnie (Élevage)",
+      "Gestion de l'Environnement et Forêts"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Agronomie Générale",
+        "Licence en Phytotechnie et Amélioration des Plantes",
+        "Licence en Zootechnie et Production Animale"
+      ],
+      "master": [
+        "Master en Agroécologie et Systèmes Alimentaires Durables"
+      ]
+    },
+    "stats": {
+      "students": 290,
+      "teachers": 15,
+      "labs": 2
+    },
+    "features": [
+      "Champs d'expérimentation agricole de l'UNIKAL en dehors de la ville",
+      "Laboratoire d'analyses pédologiques (sols) et phytosanitaires",
+      "Collaboration étroite avec les coopératives de pêcheurs de Kalemie"
+    ],
+    "iconName": "Leaf"
+  },
+  {
+    "id": "lettres",
+    "title": "Faculté des Lettres, Langues et Arts",
+    "shortDescription": "Promouvoir la culture, la communication institutionnelle et l'enseignement des langues.",
+    "description": "Cette faculté est le centre d'excellence pour la valorisation du patrimoine linguistique de la RDC, l'enseignement des langues vivantes (Français, Anglais, Swahili), l'étude littéraire et la formation aux métiers des médias.",
+    "departments": [
+      "Langues et Affaires (Français et Anglais)",
+      "Sciences de l'Information et de la Communication",
+      "Arts du Spectacle et Patrimoine"
+    ],
+    "programs": {
+      "licence": [
+        "Licence en Anglais et Français appliqués aux affaires",
+        "Licence en Journalisme et Communication Institutionnelle",
+        "Licence en Gestion du Patrimoine Culturel"
+      ],
+      "master": [
+        "Master en Communication Stratégique des Organisations"
+      ]
+    },
+    "stats": {
+      "students": 240,
+      "teachers": 12,
+      "labs": 1
+    },
+    "features": [
+      "Studio radio-école pour la formation pratique aux médias",
+      "Centre d'apprentissage des langues équipé pour l'immersion phonique",
+      "Troupe théâtrale universitaire promouvant les valeurs culturelles locales"
+    ],
+    "iconName": "BookOpen"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "news-1",
+    "title": "Cérémonie solennelle de rentrée académique à l'UNIKAL sous la présidence du Recteur Victor Kalunga Tshikala",
+    "date": "22 Octobre 2025",
+    "category": "Académique",
+    "excerpt": "Le Recteur, Professeur Victor Kalunga Tshikala, a ouvert solennellement l'année académique. Dans son discours d'orientation, il a insisté sur l'excellence scientifique et la rigueur morale symbolisées par la devise 'Scientia Splendet Conscientia'.",
+    "content": "La grande salle des conférences de l'Université de Kalemie a accueilli ce mercredi la cérémonie officielle d'ouverture de l'année académique. En présence des autorités politiques et coutumières de la province du Tanganyika, le Recteur Victor Kalunga Tshikala a tracé la feuille de route de l'institution, axée sur la numérisation complète des services académiques, le renforcement des capacités des enseignants locaux et l'intégration renforcée du système LMD.\n\n« Notre mission n'est pas seulement de conférer des diplômes, mais de façonner des citoyens dotés de conscience professionnelle, capables de transformer les ressources immenses du Tanganyika en bien-être collectif », a déclaré le Recteur lors de sa leçon inaugurale devant des centaines d'étudiants enthousiastes."
+  },
+  {
+    "id": "news-2",
+    "title": "Expansion des capacités d'accueil et nouveaux équipements aux Cliniques Universitaires de Kalemie",
+    "date": "14 Novembre 2025",
+    "category": "Cliniques",
+    "excerpt": "Grâce au soutien du gouvernement provincial du Tanganyika, les Cliniques Universitaires se dotent de nouveaux pavillons pédiatriques et d'un laboratoire moderne d'analyses médicales.",
+    "content": "Véritable fleuron de la Faculté des Sciences de la Santé, les Cliniques Universitaires de Kalemie franchissent un nouveau cap. Une visite guidée menée par le médecin directeur a permis de présenter les nouveaux bâtiments destinés aux urgences pédiatriques et un équipement d'imagerie médicale de pointe.\n\nCes infrastructures d'apprentissage permettront aux étudiants en Médecine Générale et en Sciences Infirmières d'acquérir une formation pratique de premier ordre, tout en offrant des soins de qualité supérieure et à tarifs accessibles aux populations locales de Kalemie et des localités environnantes."
+  },
+  {
+    "id": "news-4",
+    "title": "Inauguration de la nouvelle Salle Numérique et de la Bibliothèque Centrale dotées d'alimentation solaire",
+    "date": "18 Décembre 2025",
+    "category": "Infrastructures",
+    "excerpt": "Pour pallier les instabilités d'approvisionnement en électricité, l'UNIKAL déploie une solution solaire complète pour alimenter sa nouvelle salle informatique de 120 ordinateurs.",
+    "content": "C'est une avancée historique pour les étudiants d'UNIKAL. Une nouvelle salle multimédia entièrement climatisée et équipée de 120 ordinateurs de dernière génération a été officiellement inaugurée. \n\nEntièrement autonome grâce à une centrale de panneaux solaires photovoltaïques installée sur les toits, la salle informatique et la bibliothèque centrale adjacente garantiront un accès ininterrompu à l'e-learning, aux revues scientifiques indexées et à notre bibliothèque numérique interne, même lors des coupures de réseau électrique."
+  },
+  {
+    "id": "news-5",
+    "title": "Exposition technologique annuelle : les étudiants en Sciences Appliquées présentent des projets web et mobiles innovants",
+    "date": "10 Janvier 2026",
+    "category": "Vie Étudiante",
+    "excerpt": "Les étudiants du département de Génie Informatique ont présenté une douzaine de prototypes de logiciels répondant à des problématiques locales (gestion agricole, e-learning, télémédecine).",
+    "content": "L'inventivité des étudiants d'UNIKAL a brillé de mille feux lors de l'exposition technologique de fin d'année. Sous l'égide du doyen de la Faculté des Sciences Appliquées, les étudiants de Licence ont présenté des solutions logicielles remarquables.\n\nParmi les projets salués figurent une application d'alerte météo locale pour les pêcheurs du lac Tanganyika, un système d'apprentissage mobile fonctionnant sans connexion internet pour les zones rurales de Kongolo, et un portail de prise de rendez-vous pour les Cliniques Universitaires."
+  },
+  {
+    "id": "news-6",
+    "title": "Le Forum Économique du Tanganyika s'installe au campus de l'UNIKAL : débats intenses sur le désenclavement de Kalemie",
+    "date": "28 Février 2026",
+    "category": "Économie",
+    "excerpt": "Des décideurs économiques, des professeurs d'université et des experts de la Banque Mondiale débattent des clés du développement de la province.",
+    "content": "Pendant trois jours, l'Université de Kalemie est devenue la capitale économique de la province. Co-organisé par la Faculté de Sciences Économiques et de Gestion, ce forum de haut niveau a permis d'ébaucher des stratégies concrètes de désenclavement et d'investissement agricole.\n\nLes débats ont souligné le rôle central de l'UNIKAL comme incubateur de compétences et fournisseur d'analyses fiables pour les investisseurs s'intéressant à l'extraction minière éthique, à la logistique ferroviaire et portuaire de Kalemie et au tourisme lacustre."
+  }
+]

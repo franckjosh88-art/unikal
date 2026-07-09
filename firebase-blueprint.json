@@ -1,0 +1,203 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Represents a student, teacher, parent, or administrator user profile.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "faculty": { "type": "string" },
+        "department": { "type": "string" },
+        "studentId": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "Academic course offering, modules, and material metadata.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "faculty": { "type": "string" },
+        "department": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "credits": { "type": "number" },
+        "teacherId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "modules": { "type": "array" }
+      },
+      "required": ["id", "code", "title", "faculty", "department", "academicYear", "credits", "teacherId", "teacherName"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "University news or bulletin updates.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "isPinned": { "type": "boolean" },
+        "isActive": { "type": "boolean" },
+        "scope": { "type": "string" },
+        "targetUnit": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "category", "authorId", "authorName", "authorRole", "targetAudience", "createdAt"]
+    },
+    "Assignment": {
+      "title": "Assignment",
+      "description": "Student homework tasks, submissions, grades and feedback.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "courseId": { "type": "string" },
+        "courseTitle": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "points": { "type": "number" },
+        "submitted": { "type": "boolean" },
+        "submissionDate": { "type": "string" },
+        "submissionText": { "type": "string" },
+        "submissionFile": { "type": "string" },
+        "grade": { "type": "number" },
+        "gradeFeedback": { "type": "string" }
+      },
+      "required": ["id", "courseId", "courseTitle", "title", "dueDate", "points"]
+    },
+    "Quiz": {
+      "title": "Quiz",
+      "description": "Interactive multiple choice question (MCQ) quizzes.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "courseId": { "type": "string" },
+        "courseTitle": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "questions": { "type": "array" },
+        "dueDate": { "type": "string" },
+        "submitted": { "type": "boolean" },
+        "score": { "type": "number" }
+      },
+      "required": ["id", "courseId", "courseTitle", "title", "durationMinutes", "questions", "dueDate"]
+    },
+    "LibraryItem": {
+      "title": "Library Item",
+      "description": "Metadata for open educational resources (books, memory works, reviews, TFC).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "type": { "type": "string" },
+        "year": { "type": "number" },
+        "institution": { "type": "string" },
+        "faculty": { "type": "string" },
+        "size": { "type": "string" },
+        "downloadsCount": { "type": "number" },
+        "downloaded": { "type": "boolean" }
+      },
+      "required": ["id", "title", "author", "type", "year", "institution", "faculty", "size", "downloadsCount"]
+    },
+    "ForumTopic": {
+      "title": "Forum Topic",
+      "description": "LMS forum discussion threads.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "courseId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "repliesCount": { "type": "number" },
+        "viewsCount": { "type": "number" }
+      },
+      "required": ["id", "title", "description", "category", "authorName", "createdAt", "repliesCount", "viewsCount"]
+    },
+    "ForumPost": {
+      "title": "Forum Post",
+      "description": "LMS forum replies, and user comments.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "topicId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "likes": { "type": "number" },
+        "replies": { "type": "array" }
+      },
+      "required": ["id", "topicId", "authorName", "authorRole", "content", "createdAt", "likes", "replies"]
+    },
+    "ChatMessage": {
+      "title": "Chat Message",
+      "description": "Private direct messages between students, teachers, parents, and admins.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "read": { "type": "boolean" }
+      },
+      "required": ["id", "senderId", "senderName", "senderRole", "receiverId", "content", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles for the academic platform."
+    },
+    "/courses/{courseId}": {
+      "schema": "Course",
+      "description": "Academic course materials and assignments."
+    },
+    "/announcements/{announcementId}": {
+      "schema": "Announcement",
+      "description": "LMS Bulletin board announcements."
+    },
+    "/assignments/{assignmentId}": {
+      "schema": "Assignment",
+      "description": "Homework instructions and student submission states."
+    },
+    "/quizzes/{quizId}": {
+      "schema": "Quiz",
+      "description": "LMS Quiz and scorecards."
+    },
+    "/library/{libraryId}": {
+      "schema": "LibraryItem",
+      "description": "Offline-first open digital library resources."
+    },
+    "/forum_topics/{topicId}": {
+      "schema": "ForumTopic",
+      "description": "Discussion threads metadata."
+    },
+    "/forum_posts/{postId}": {
+      "schema": "ForumPost",
+      "description": "Discussion comment replies and likes."
+    },
+    "/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Private direct communication messages."
+    }
+  }
+}
