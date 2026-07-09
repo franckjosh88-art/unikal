@@ -75,22 +75,22 @@ export default function UnikalHeader({ onNavigate, currentView, onOpenLms }: Uni
         </div>
 
         {/* Liens d'accès rapides droite */}
-        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 font-bold text-[10px] tracking-wider text-slate-300">
+        <div className="hidden md:flex md:flex-row md:items-center md:flex-nowrap gap-4 lg:gap-6 font-bold text-[10px] tracking-wider text-slate-300 whitespace-nowrap">
           <button 
             onClick={onOpenLms} 
-            className="px-2.5 py-0.5 rounded bg-blue-600/90 text-white hover:bg-blue-600 transition-all shadow-sm uppercase text-[10px] cursor-pointer hover:scale-105"
+            className="px-2.5 py-0.5 rounded bg-blue-600/90 text-white hover:bg-blue-600 transition-all shadow-sm uppercase text-[10px] cursor-pointer hover:scale-105 shrink-0"
           >
             💻 PORTAIL EN LIGNE (LMS)
           </button>
           <button 
             onClick={onOpenLms} 
-            className="hover:text-amber-400 transition-colors uppercase cursor-pointer"
+            className="hover:text-amber-400 transition-colors uppercase cursor-pointer shrink-0"
           >
             E-Learning
           </button>
           <button 
             onClick={() => handleLinkClick('library-portal')} 
-            className="hover:text-amber-400 transition-colors uppercase cursor-pointer"
+            className="hover:text-amber-400 transition-colors uppercase cursor-pointer shrink-0"
           >
             Bibliothèque
           </button>
@@ -98,7 +98,7 @@ export default function UnikalHeader({ onNavigate, currentView, onOpenLms }: Uni
             href="https://revues.unikal.ac.cd/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-amber-400 transition-colors flex items-center gap-1 uppercase"
+            className="hover:text-amber-400 transition-colors flex items-center gap-1 uppercase shrink-0"
           >
             Revues Scientifiques <ExternalLink className="w-2.5 h-2.5 shrink-0" />
           </a>
@@ -337,6 +337,33 @@ export default function UnikalHeader({ onNavigate, currentView, onOpenLms }: Uni
             </div>
 
             <div className="divide-y divide-slate-100">
+              {/* Accordion Portails & E-Services */}
+              <div className="py-2.5">
+                <button 
+                  onClick={() => toggleMobileAccordion('services')}
+                  className="w-full flex justify-between items-center text-xs font-bold uppercase text-slate-800"
+                >
+                  <span>Portails & E-Services</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileAccordions['services'] ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileAccordions['services'] && (
+                  <div className="pl-3 mt-2 space-y-2 flex flex-col border-l border-slate-100 text-xs text-slate-600">
+                    <button onClick={onOpenLms} className="text-left py-1 hover:text-blue-900 font-semibold flex items-center gap-1.5 cursor-pointer">💻 Portail en ligne (LMS)</button>
+                    <button onClick={onOpenLms} className="text-left py-1 hover:text-blue-900 flex items-center gap-1.5 cursor-pointer">E-Learning</button>
+                    <button onClick={() => handleLinkClick('library-portal')} className="text-left py-1 hover:text-blue-900 flex items-center gap-1.5 cursor-pointer">Bibliothèque</button>
+                    <a 
+                      href="https://revues.unikal.ac.cd/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-left py-1 hover:text-blue-900 flex items-center gap-1.5"
+                    >
+                      <span>Revues Scientifiques</span>
+                      <ExternalLink className="w-3 h-3 shrink-0 text-slate-400" />
+                    </a>
+                  </div>
+                )}
+              </div>
+
               {/* Accordion À Propos */}
               <div className="py-2.5">
                 <button 

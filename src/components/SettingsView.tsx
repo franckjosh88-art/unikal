@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Settings, 
   Volume2, 
@@ -74,6 +75,95 @@ export default function SettingsView({
   const [profileSavedSuccess, setProfileSavedSuccess] = useState(false);
   const [isTestingSpeech, setIsTestingSpeech] = useState(false);
 
+  // Preloading states
+  const [isPreloading, setIsPreloading] = useState(false);
+  const [preloadProgress, setPreloadProgress] = useState(0);
+  const [preloadStep, setPreloadStep] = useState("");
+  const [preloadCompleted, setPreloadCompleted] = useState(false);
+  const [autoPreloadStable, setAutoPreloadStable] = useState(() => {
+    return localStorage.getItem('unikal_auto_preload_stable') === 'true';
+  });
+
+  const handleToggleAutoPreload = (checked: boolean) => {
+    setAutoPreloadStable(checked);
+    localStorage.setItem('unikal_auto_preload_stable', String(checked));
+    if ((window as any).showToast) {
+      (window as any).showToast(
+        checked 
+          ? (appLanguage === 'sw' 
+              ? "Upakuaji kiotomatiki umewezeshwa kwa mtandao thabiti!"
+              : "Préchargement automatique activé pour les connexions stables !")
+          : (appLanguage === 'sw'
+              ? "Upakuaji kiotomatiki umezimwa."
+              : "Préchargement automatique désactivé."),
+        "info"
+      );
+    }
+  };
+
+  const runPreloading = () => {
+    setIsPreloading(true);
+    setPreloadProgress(0);
+    setPreloadCompleted(false);
+    
+    const steps = [
+      { progress: 10, text: appLanguage === 'sw' ? "Inatafuta masomo yaliyopo..." : "Analyse des supports de cours et ressources disponibles..." },
+      { progress: 30, text: appLanguage === 'sw' ? "Inapakua somo la Algorithme (2.4 MB)..." : "Téléchargement du support de cours: Algorithmique Avancée (2.4 Mo)..." },
+      { progress: 55, text: appLanguage === 'sw' ? "Inapakua masomo ya Kilimo cha Tanganyika (4.1 MB)..." : "Téléchargement du support de cours: Agronomie Tropicale Durable (4.1 Mo)..." },
+      { progress: 75, text: appLanguage === 'sw' ? "Inahifadhi picha na michoro ya masomo..." : "Mise en cache des illustrations, cartes du lac Tanganyika et schémas UML..." },
+      { progress: 90, text: appLanguage === 'sw' ? "Inaandaa maswali na majibu ya mitihani..." : "Stockage de la banque de données des Quiz & Évaluations d'accès rapide..." },
+      { progress: 100, text: appLanguage === 'sw' ? "Upakuaji umekamilika kikamilifu!" : "Préchargement et indexation terminés avec succès !" }
+    ];
+
+    let currentStepIndex = 0;
+    setPreloadStep(steps[0].text);
+
+    const interval = setInterval(() => {
+      setPreloadProgress(prev => {
+        const nextProgress = prev + 1;
+        
+        if (currentStepIndex < steps.length - 1 && nextProgress >= steps[currentStepIndex + 1].progress) {
+          currentStepIndex++;
+          setPreloadStep(steps[currentStepIndex].text);
+        }
+
+        if (nextProgress >= 100) {
+          clearInterval(interval);
+          try {
+            const materialIds = {
+              'mat1': true, 'mat2': true, 'mat3': true, 'mat4': true, 
+              'mat5': true, 'mat6': true, 'mat7': true, 'mat8': true,
+              'mat9': true, 'mat10': true, 'mat11': true, 'mat12': true
+            };
+            const libraryIds = {
+              'lib1': true, 'lib2': true, 'lib3': true, 'lib4': true
+            };
+            localStorage.setItem('unikal_downloaded_material_ids', JSON.stringify(materialIds));
+            localStorage.setItem('unikal_downloaded_library_item_ids', JSON.stringify(libraryIds));
+            window.dispatchEvent(new Event('unikal_cache_synced'));
+          } catch (e) {
+            console.error("Local storage cache write error:", e);
+          }
+
+          setTimeout(() => {
+            setIsPreloading(false);
+            setPreloadCompleted(true);
+            if ((window as any).showToast) {
+              (window as any).showToast(
+                appLanguage === 'sw'
+                  ? "Masomo yote yamehifadhiwa kwa matumizi ya bila mtandao!"
+                  : "Tous les cours et ressources multimédias ont été mis en cache hors-ligne !",
+                "success"
+              );
+            }
+          }, 600);
+          return 100;
+        }
+        return nextProgress;
+      });
+    }, 40);
+  };
+
   // Translation mappings for settings based on selected appLanguage
   const l = (key: string): string => {
     const translations: Record<string, Record<string, string>> = {
@@ -103,6 +193,13 @@ export default function SettingsView({
         lowBandwidthDesc: "Réduit la résolution des images et évite le chargement des lourds graphiques pour préserver les forfaits internet dans le Tanganyika.",
         autoDownload: "Téléchargement automatique de secours",
         autoDownloadDesc: "Met en cache automatiquement sur votre appareil mobile les nouveaux supports de cours et les énoncés des devoirs dès qu'une connexion réseau est détectée.",
+        autoPreload: "Préchargement automatique (Connexion stable)",
+        autoPreloadDesc: "Précharge automatiquement en tâche de fond tous les supports de cours et ressources multimédias dès qu'un réseau haut débit stable est disponible, permettant un apprentissage en mode hors-ligne strict.",
+        manualPreloadTitle: "Préchargement manuel complet",
+        manualPreloadDesc: "Stockez localement l'ensemble des cours PDF, podcasts, résumés et images compressées en un clic pour une résilience absolue.",
+        preloadBtnLabel: "Lancer le préchargement maintenant",
+        preloadingState: "Préchargement et indexation locale en cours...",
+        preloadDone: "Tous les cours sont préchargés et synchronisés !",
         backupTitle: "Sauvegarde locale & Partage OTG",
         backupDesc: "Exportez ou restaurez vos données pour les partager sans consommer d'internet."
       },
@@ -132,6 +229,13 @@ export default function SettingsView({
         lowBandwidthDesc: "Inapunguza ubora wa picha na kuzuia upakuaji wa picha kubwa ili kulinda vifurushi vya internet huko Tanganyika.",
         autoDownload: "Kupakua kiotomatiki kwa dharura",
         autoDownloadDesc: "Pakua kiotomatiki masomo na kazi ukiwa na mtandao ili kusoma ukiwa porini bila mtandao.",
+        autoPreload: "Upakuaji kiotomatiki (Mtandao thabiti)",
+        autoPreloadDesc: "Pakua masomo yote na nyaraka za sauti/picha mara moja unapounganishwa kwenye mtandao thabiti ili kusoma bila mtandao kabisa baadaye.",
+        manualPreloadTitle: "Upakuaji wa Mwongozo Kamili",
+        manualPreloadDesc: "Hifadhi kwenye kifaa chako masomo yote ya PDF, sauti, picha na mazoezi kwa kubofya mara moja tu.",
+        preloadBtnLabel: "Anza upakuaji sasa hivi",
+        preloadingState: "Masomo yanahifadhiwa kwenye kifaa chako...",
+        preloadDone: "Masomo yote yamepakuliwa na kuhifadhiwa vyema!",
         backupTitle: "Hifadhi ya Ndani na Kushiriki kwa USB OTG",
         backupDesc: "Toa nje au rudisha data zako ili ushiriki na wanafunzi wengine bila data ya mtandao."
       }
@@ -630,6 +734,97 @@ export default function SettingsView({
                     </span>
                   </div>
                 </label>
+
+                {/* Toggle Auto Preload Stable Connection Mode */}
+                <label className="flex items-start gap-4 p-4.5 rounded-2xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-950/50 cursor-pointer transition-colors">
+                  <input
+                    type="checkbox"
+                    className="w-4.5 h-4.5 rounded text-blue-600 dark:text-blue-500 accent-blue-600 border-slate-300 mt-1"
+                    checked={autoPreloadStable}
+                    onChange={(e) => handleToggleAutoPreload(e.target.checked)}
+                  />
+                  <div className="flex-1 space-y-1">
+                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200 block">
+                      {l('autoPreload')}
+                    </span>
+                    <span className="text-xs text-slate-500 block leading-relaxed">
+                      {l('autoPreloadDesc')}
+                    </span>
+                  </div>
+                </label>
+
+                {/* Manual Complete Preloading Container */}
+                <div className="p-5 rounded-2xl border border-blue-100 dark:border-blue-900 bg-blue-50/20 dark:bg-blue-950/5 space-y-4">
+                  <div className="space-y-1">
+                    <span className="text-sm font-bold text-slate-850 dark:text-slate-150 flex items-center gap-2">
+                      <Download className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      {l('manualPreloadTitle')}
+                    </span>
+                    <span className="text-xs text-slate-500 block leading-normal">
+                      {l('manualPreloadDesc')}
+                    </span>
+                  </div>
+
+                  <div className="pt-2">
+                    {!isPreloading && !preloadCompleted && (
+                      <button
+                        onClick={runPreloading}
+                        className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md hover:scale-102 transition-all flex items-center gap-2 cursor-pointer"
+                      >
+                        <RefreshCw className="w-4 h-4" />
+                        <span>{l('preloadBtnLabel')}</span>
+                      </button>
+                    )}
+
+                    {isPreloading && (
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center text-xs font-semibold text-blue-700 dark:text-blue-400">
+                          <span className="flex items-center gap-1.5">
+                            <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                            {l('preloadingState')}
+                          </span>
+                          <span className="font-mono">{preloadProgress}%</span>
+                        </div>
+                        <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <motion.div 
+                            className="bg-blue-600 h-full rounded-full"
+                            style={{ width: `${preloadProgress}%` }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${preloadProgress}%` }}
+                            transition={{ duration: 0.1 }}
+                          />
+                        </div>
+                        <p className="text-[11px] text-slate-500 italic font-medium animate-pulse">
+                          {preloadStep}
+                        </p>
+                      </div>
+                    )}
+
+                    {preloadCompleted && (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 space-y-3"
+                      >
+                        <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+                          <ShieldCheck className="w-4 h-4" />
+                          <span>{l('preloadDone')}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400">
+                          {appLanguage === 'sw'
+                            ? "Maudhui yote ya kozi yamehifadhiwa sasa kwenye kifaa chako kwa matumizi bila mtandao katika mkoa mzima wa Tanganyika."
+                            : "L'intégralité du cursus et des ressources associées ont été stockés de manière résiliente. Vous pouvez voyager et étudier n'importe où sans signal réseau."}
+                        </p>
+                        <button
+                          onClick={runPreloading}
+                          className="px-3.5 py-1.5 border border-emerald-200 dark:border-emerald-800 bg-white dark:bg-slate-900 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 font-bold text-[10px] uppercase rounded-lg transition-colors cursor-pointer"
+                        >
+                          {appLanguage === 'sw' ? "Kupakua tena" : "Synchroniser de nouveau"}
+                        </button>
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
 
                 <div className="p-4 rounded-2xl bg-amber-50/50 dark:bg-amber-950/10 border border-amber-200/30 flex items-start gap-3">
                   <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />

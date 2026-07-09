@@ -861,12 +861,48 @@ export default function App() {
   };
 
   // Cache download tracers for low network weak signal simulation
-  const [downloadedMaterialIds, setDownloadedMaterialIds] = useState<Record<string, boolean>>({
-    'mat-1-1': true // seed with one pre-downloaded item
+  const [downloadedMaterialIds, setDownloadedMaterialIds] = useState<Record<string, boolean>>(() => {
+    const saved = localStorage.getItem('unikal_downloaded_material_ids');
+    if (saved) {
+      try { return JSON.parse(saved); } catch (e) {}
+    }
+    return { 'mat-1-1': true };
   });
-  const [downloadedLibraryItemIds, setDownloadedLibraryItemIds] = useState<Record<string, boolean>>({
-    'lib-1': true
+
+  const [downloadedLibraryItemIds, setDownloadedLibraryItemIds] = useState<Record<string, boolean>>(() => {
+    const saved = localStorage.getItem('unikal_downloaded_library_item_ids');
+    if (saved) {
+      try { return JSON.parse(saved); } catch (e) {}
+    }
+    return { 'lib-1': true };
   });
+
+  // Persist download state changes
+  useEffect(() => {
+    localStorage.setItem('unikal_downloaded_material_ids', JSON.stringify(downloadedMaterialIds));
+  }, [downloadedMaterialIds]);
+
+  useEffect(() => {
+    localStorage.setItem('unikal_downloaded_library_item_ids', JSON.stringify(downloadedLibraryItemIds));
+  }, [downloadedLibraryItemIds]);
+
+  // Sync state if another action changes localStorage (e.g. settings preloading)
+  useEffect(() => {
+    const handleStorageSync = () => {
+      const savedM = localStorage.getItem('unikal_downloaded_material_ids');
+      if (savedM) {
+        try { setDownloadedMaterialIds(JSON.parse(savedM)); } catch (e) {}
+      }
+      const savedL = localStorage.getItem('unikal_downloaded_library_item_ids');
+      if (savedL) {
+        try { setDownloadedLibraryItemIds(JSON.parse(savedL)); } catch (e) {}
+      }
+    };
+    window.addEventListener('unikal_cache_synced', handleStorageSync);
+    return () => {
+      window.removeEventListener('unikal_cache_synced', handleStorageSync);
+    };
+  }, []);
 
   // Switcher between demo roles (student, teacher, parent, admin)
   const handleChangeRole = async (role: UserRole) => {
