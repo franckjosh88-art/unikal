@@ -91,7 +91,7 @@ export interface LibraryItem {
   author: string;
   type: 'livre' | 'tfc' | 'memoire' | 'revue';
   year: number;
-  institution: string; // e.g. "Université de Kalemie (UNIKAL)"
+  institution: string; // e.g. "Plateforme d'Étude"
   faculty: string;
   size: string;
   downloadsCount: number;

@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { 
   ResponsiveContainer, 
   PieChart, 
@@ -89,7 +90,7 @@ export default function DashboardView({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="text-[11px] font-mono tracking-wider uppercase text-emerald-400 font-bold">
-              Bienvenue sur UNIKAL E-Learning
+              Bienvenue sur le portail du Lycée Amani
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-1">
               Jambo, {currentUser.name} !
@@ -97,14 +98,14 @@ export default function DashboardView({
             <p className="text-sm text-slate-350 mt-1.5 max-w-xl">
               {currentUser.role === 'student' && "Prêt à poursuivre votre apprentissage aujourd'hui ? Accédez à vos modules d'étude, soumettez vos devoirs et explorez la bibliothèque numérique."}
               {currentUser.role === 'teacher' && "Gérez vos classes et supports, planifiez de nouvelles évaluations intelligentes par IA et suivez l'avancement de vos promotions d'étudiants."}
-              {currentUser.role === 'parent' && `Suivez la scolarité et les progrès académiques de votre enfant ${parentLog?.studentName || "l'Étudiant"} à Kalemie.`}
-              {currentUser.role === 'admin' && "Pilotez l'architecture académique universitaire du Tanganyika, configurez les années d'étude et examinez les données d'apprentissage."}
+              {currentUser.role === 'parent' && `Suivez la scolarité et les progrès scolaires de votre enfant ${parentLog?.studentName || "l'Élève"} à Kalemie.`}
+              {currentUser.role === 'admin' && "Pilotez l'administration scolaire du Lycée Amani, configurez les années d'étude et examinez les données d'apprentissage."}
             </p>
           </div>
           <div className="bg-slate-800/80 border border-slate-750 p-4 rounded-xl flex items-center gap-3 self-start md:self-center">
             <Calendar className="w-10 h-10 text-emerald-400 shrink-0" />
             <div className="flex flex-col">
-              <span className="text-xs text-slate-400 font-mono">Année Académique</span>
+              <span className="text-xs text-slate-400 font-mono">Année Scolaire</span>
               <span className="text-sm font-bold text-slate-100">2025 - 2026</span>
             </div>
           </div>
@@ -211,7 +212,7 @@ export default function DashboardView({
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-slate-400 font-medium">Moyenne Académique Générale</span>
+                <span className="text-xs text-slate-400 font-medium">Moyenne Scolaire Générale</span>
                 <h3 className="text-2xl font-extrabold text-white mt-0.5">{parentLog?.recentGradeAverage}/20 (Très Bien)</h3>
               </div>
             </div>
@@ -273,7 +274,7 @@ export default function DashboardView({
                 <Bell className="w-5 h-5 text-emerald-400" />
                 <h2 className="text-lg font-bold text-white">Annonces & Bulletins Officiels</h2>
               </div>
-              <span className="text-xs bg-slate-800 px-2.5 py-1 text-slate-400 rounded-full font-sans uppercase">Tanganyika Univ</span>
+              <span className="text-xs bg-slate-800 px-2.5 py-1 text-slate-400 rounded-full font-sans uppercase">Lycée Amani</span>
             </div>
             <div className="p-6 space-y-5">
               {announcements.map((ann) => (
@@ -319,9 +320,30 @@ export default function DashboardView({
                 <BookOpen className="w-5 h-5 text-emerald-400" />
                 Aperçu de mes Séquences de cours
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.08
+                    }
+                  }
+                }}
+                initial="hidden"
+                animate="show"
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 {enrolledCourses.map((c) => (
-                  <div key={c.id} className="p-5 bg-slate-850 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between hover:border-slate-700 transition-all">
+                  <motion.div 
+                    key={c.id} 
+                    variants={{
+                      hidden: { opacity: 0, y: 12 },
+                      show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 280, damping: 24 } }
+                    }}
+                    whileHover={{ scale: 1.015 }}
+                    className="p-5 bg-slate-850 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between hover:border-slate-700 transition-all"
+                  >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold bg-slate-800 text-emerald-400 px-2.5 py-1 rounded-full">{c.code}</span>
@@ -334,9 +356,9 @@ export default function DashboardView({
                       <span>{c.teacherName}</span>
                       <span className="font-semibold text-emerald-400 font-sans">{c.modules.length} modules</span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
@@ -450,18 +472,39 @@ export default function DashboardView({
               <Calendar className="w-4 h-4 text-emerald-400" />
               Échéances & Agenda
             </h3>
-            <div className="space-y-3">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.08
+                  }
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              className="space-y-3"
+            >
               {assignments.map(a => (
-                <div key={a.id} className="p-3 bg-slate-800/80 rounded-xl border border-slate-705 text-xs flex flex-col gap-1">
+                <motion.div 
+                  key={a.id} 
+                  variants={{
+                    hidden: { opacity: 0, x: 15 },
+                    show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 280, damping: 24 } }
+                  }}
+                  whileHover={{ scale: 1.02, x: 4 }}
+                  className="p-3 bg-slate-800/80 rounded-xl border border-slate-705 text-xs flex flex-col gap-1 cursor-pointer"
+                >
                   <div className="flex items-center justify-between font-mono text-[10px]">
                     <span className="text-amber-400 uppercase font-semibold">Devoir à rendre</span>
                     <span className="text-slate-400">{new Date(a.dueDate).toLocaleDateString('fr-FR')}</span>
                   </div>
                   <span className="font-semibold text-slate-100 font-sans leading-tight line-clamp-2">{a.title}</span>
                   <span className="text-[10px] text-slate-400 italic mt-1">{a.courseTitle}</span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 

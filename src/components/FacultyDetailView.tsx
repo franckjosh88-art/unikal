@@ -179,7 +179,7 @@ export default function FacultyDetailView({ facultyId, onBack, onNavigate }: Fac
           {/* Cliniques Universitaires Promo banner if Health sciences */}
           {facultyId === 'sante' && (
             <div className="bg-gradient-to-br from-emerald-600 to-teal-800 text-white p-6 rounded-3xl space-y-4 shadow-md">
-              <span className="px-2 py-0.5 bg-white text-emerald-800 text-[8px] font-black uppercase tracking-wider rounded">Exclusivité UNIKAL</span>
+              <span className="px-2 py-0.5 bg-white text-emerald-800 text-[8px] font-black uppercase tracking-wider rounded">Exclusivité Lycée Amani</span>
               <h3 className="text-base font-black leading-tight">Nos Cliniques Universitaires à votre service</h3>
               <p className="text-xs text-slate-100 leading-relaxed font-medium">
                 Les Cliniques Universitaires de Kalemie constituent notre hôpital d'application directe. Les étudiants y effectuent leurs stages d'immersion clinique sous l'encadrement de médecins et spécialistes de renom.
@@ -195,14 +195,14 @@ export default function FacultyDetailView({ facultyId, onBack, onNavigate }: Fac
 
           {/* Contact / Inscription Promo */}
           <div className="bg-slate-50/60 p-6 rounded-3xl border border-slate-100 space-y-5">
-            <h3 className="text-xs font-black text-slate-900 uppercase tracking-wider">Secrétariat de Faculté</h3>
+            <h3 className="text-xs font-black text-slate-900 uppercase tracking-wider">Secrétariat de Section</h3>
             <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
-              Pour toute question sur l'admission, le choix des départements ou l'organisation des cours à la faculté :
+              Pour toute question sur l'admission, le choix des options ou l'organisation des cours dans cette section :
             </p>
             <div className="space-y-2.5 text-xs text-slate-700 font-bold">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-900 shrink-0" />
-                <span>faculte-{facultyId}@unikal.ac.cd</span>
+                <span>section-{facultyId}@lyceeamani.org</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-blue-900 shrink-0" />

@@ -130,8 +130,8 @@ export default function DigitalLibraryView({
   const [newAuthor, setNewAuthor] = useState('');
   const [newType, setNewType] = useState<'livre' | 'tfc' | 'memoire' | 'revue'>('tfc');
   const [newYear, setNewYear] = useState(2025);
-  const [newInstitution, setNewInstitution] = useState('Université de Kalemie (UNIKAL)');
-  const [newFaculty, setNewFaculty] = useState('Sciences Appliquées');
+  const [newInstitution, setNewInstitution] = useState('Lycée Amani');
+  const [newFaculty, setNewFaculty] = useState('Humanités Scientifiques');
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
 

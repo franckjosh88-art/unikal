@@ -35,13 +35,13 @@ export default function AiAssistantView({
 
   // Q&A states
   const [chatHistory, setChatHistory] = useState<ChatMessageLocal[]>([
-    { role: 'assistant', text: `Jambo ${currentUser.name} ! Je suis votre tuteur d'intelligence artificielle UNIKAL E-Learning. \n\nJe suis capable de répondre à vos questions académiques (algorithmes, agronomie tropicale durables, géométrie) ou de vous traduire vos phrases. Comment puis-je vous guider ?` }
+    { role: 'assistant', text: `Jambo ${currentUser.name} ! Je suis votre tuteur d'intelligence artificielle du Lycée Amani. \n\nJe suis capable de répondre à vos questions scolaires (physique, chimie, mathématiques, histoire) ou de vous aider à traduire des phrases. Comment puis-je vous guider aujourd'hui ?` }
   ]);
   const [qaInput, setQaInput] = useState('');
   const [isAnswering, setIsAnswering] = useState(false);
 
   // Translation states
-  const [translationText, setTranslationText] = useState("L'accès aux études universitaires est la clé du d'un avenir prospère pour la province du Tanganyika.");
+  const [translationText, setTranslationText] = useState("L'accès à une éducation scolaire de qualité est la clé d'un avenir prospère pour la province du Tanganyika.");
   const [targetLang, setTargetLang] = useState('Swahili');
   const [translatedResult, setTranslatedResult] = useState('');
   const [isTranslating, setIsTranslating] = useState(false);

@@ -1,42 +1,42 @@
 [
   {
     "id": "news-1",
-    "title": "Cérémonie solennelle de rentrée académique à l'UNIKAL sous la présidence du Recteur Victor Kalunga Tshikala",
-    "date": "22 Octobre 2025",
+    "title": "Cérémonie solennelle de rentrée scolaire à la Plateforme d'Étude sous la présidence de la Révérente Sœur Préfète",
+    "date": "08 Septembre 2025",
     "category": "Académique",
-    "excerpt": "Le Recteur, Professeur Victor Kalunga Tshikala, a ouvert solennellement l'année académique. Dans son discours d'orientation, il a insisté sur l'excellence scientifique et la rigueur morale symbolisées par la devise 'Scientia Splendet Conscientia'.",
-    "content": "La grande salle des conférences de l'Université de Kalemie a accueilli ce mercredi la cérémonie officielle d'ouverture de l'année académique. En présence des autorités politiques et coutumières de la province du Tanganyika, le Recteur Victor Kalunga Tshikala a tracé la feuille de route de l'institution, axée sur la numérisation complète des services académiques, le renforcement des capacités des enseignants locaux et l'intégration renforcée du système LMD.\n\n« Notre mission n'est pas seulement de conférer des diplômes, mais de façonner des citoyens dotés de conscience professionnelle, capables de transformer les ressources immenses du Tanganyika en bien-être collectif », a déclaré le Recteur lors de sa leçon inaugurale devant des centaines d'étudiants enthousiastes."
+    "excerpt": "La Révérente Sœur Préfète a ouvert solennellement l'année scolaire. Dans son allocution, elle a insisté sur l'excellence scientifique, la discipline rigoureuse et la formation citoyenne incarnées par notre devise 'Paix, Travail, Excellence'.",
+    "content": "La grande cour d'honneur de la Plateforme d'Étude a accueilli ce lundi la cérémonie d'ouverture de la nouvelle année scolaire. En présence des inspecteurs provinciaux de l'EPSP Tanganyika, des parents et des membres du comité de gestion, la Sœur Préfète a tracé la feuille de route, axée sur le renforcement du suivi de discipline, l'intégration des cours multimédias interactifs numériques et la préparation intensive aux Examens d'État dès le premier trimestre.\n\n« Notre mission à la Plateforme d'Étude est de façonner des citoyennes et citoyens d'élite, dotés d'une intégrité morale sans faille et de compétences scientifiques de niveau international pour le relèvement de notre pays », a déclaré la Sœur Préfète."
   },
   {
     "id": "news-2",
-    "title": "Expansion des capacités d'accueil et nouveaux équipements aux Cliniques Universitaires de Kalemie",
+    "title": "Inauguration du nouveau Laboratoire de Chimie et Physique de la Plateforme d'Étude",
     "date": "14 Novembre 2025",
-    "category": "Cliniques",
-    "excerpt": "Grâce au soutien du gouvernement provincial du Tanganyika, les Cliniques Universitaires se dotent de nouveaux pavillons pédiatriques et d'un laboratoire moderne d'analyses médicales.",
-    "content": "Véritable fleuron de la Faculté des Sciences de la Santé, les Cliniques Universitaires de Kalemie franchissent un nouveau cap. Une visite guidée menée par le médecin directeur a permis de présenter les nouveaux bâtiments destinés aux urgences pédiatriques et un équipement d'imagerie médicale de pointe.\n\nCes infrastructures d'apprentissage permettront aux étudiants en Médecine Générale et en Sciences Infirmières d'acquérir une formation pratique de premier ordre, tout en offrant des soins de qualité supérieure et à tarifs accessibles aux populations locales de Kalemie et des localités environnantes."
+    "category": "Infrastructures",
+    "excerpt": "Grâce aux partenariats locaux et de la congrégation, la Plateforme d'Étude se dote d'un laboratoire de chimie et de physique moderne avec paillasses équipées et microscopes de précision.",
+    "content": "Véritable fierté pour la section des Humanités Scientifiques, le nouveau laboratoire multidisciplinaire vient d'ouvrir ses portes. Les élèves de 3ème et 4ème Scientifique vont désormais pouvoir pratiquer en temps réel des manipulations d'acides-bases, des expérimentations d'optique et d'électricité.\n\nCe laboratoire servira de cadre pour lier les théories apprises en classe aux réalités pratiques, garantissant un taux de réussite de 100% aux épreuves d'Examen d'État de chimie pratique."
   },
   {
     "id": "news-4",
-    "title": "Inauguration de la nouvelle Salle Numérique et de la Bibliothèque Centrale dotées d'alimentation solaire",
+    "title": "Modernisation de la Salle Informatique : Installation de 120 ordinateurs alimentés à l'énergie solaire",
     "date": "18 Décembre 2025",
-    "category": "Infrastructures",
-    "excerpt": "Pour pallier les instabilités d'approvisionnement en électricité, l'UNIKAL déploie une solution solaire complète pour alimenter sa nouvelle salle informatique de 120 ordinateurs.",
-    "content": "C'est une avancée historique pour les étudiants d'UNIKAL. Une nouvelle salle multimédia entièrement climatisée et équipée de 120 ordinateurs de dernière génération a été officiellement inaugurée. \n\nEntièrement autonome grâce à une centrale de panneaux solaires photovoltaïques installée sur les toits, la salle informatique et la bibliothèque centrale adjacente garantiront un accès ininterrompu à l'e-learning, aux revues scientifiques indexées et à notre bibliothèque numérique interne, même lors des coupures de réseau électrique."
+    "category": "Innovation",
+    "excerpt": "Pour pallier les coupures d'électricité récurrentes à la Plateforme d'Étude, la Plateforme d'Étude déploie une centrale solaire complète pour alimenter sa salle multimédia.",
+    "content": "C'est un jalon historique pour la transition numérique scolaire dans la province du Tanganyika. La salle informatique de la Plateforme d'Étude a été dotée de 120 nouveaux ordinateurs portables légers connectés à une bibliothèque numérique interne et à la plateforme numérique de la Plateforme d'Étude.\n\nGrâce à un système d'énergie solaire robuste composé de panneaux photovoltaïques et de batteries au lithium, la salle multimédia reste opérationnelle de jour comme de nuit, permettant aux élèves de poursuivre l'apprentissage de la programmation de base et des outils de gestion comptable sans interruption."
   },
   {
     "id": "news-5",
-    "title": "Exposition technologique annuelle : les étudiants en Sciences Appliquées présentent des projets web et mobiles innovants",
+    "title": "Exposition des mini-entreprises : Les élèves de Commerciale et Gestion surprennent le jury par leurs projets de micro-finance",
     "date": "10 Janvier 2026",
-    "category": "Vie Étudiante",
-    "excerpt": "Les étudiants du département de Génie Informatique ont présenté une douzaine de prototypes de logiciels répondant à des problématiques locales (gestion agricole, e-learning, télémédecine).",
-    "content": "L'inventivité des étudiants d'UNIKAL a brillé de mille feux lors de l'exposition technologique de fin d'année. Sous l'égide du doyen de la Faculté des Sciences Appliquées, les étudiants de Licence ont présenté des solutions logicielles remarquables.\n\nParmi les projets salués figurent une application d'alerte météo locale pour les pêcheurs du lac Tanganyika, un système d'apprentissage mobile fonctionnant sans connexion internet pour les zones rurales de Kongolo, et un portail de prise de rendez-vous pour les Cliniques Universitaires."
+    "category": "Vie Scolaire",
+    "excerpt": "Les élèves de la section Commerciale ont simulé la gestion comptable d'une coopérative de micro-crédit pour petits commerçants du marché de la Plateforme d'Étude.",
+    "content": "L'inventivité des élèves de la section Commerciale et Gestion a brillé lors de la journée des mini-entreprises. Sous l'égide du professeur de comptabilité générale, les équipes de terminale ont présenté des plans d'affaires complets incluant bilans financiers sous format OHADA et calculs de rentabilité pour des fermes maraîchères de la plaine de la Plateforme d'Étude.\n\nLe jury composé de banquiers professionnels a salué la maîtrise rigoureuse des concepts de gestion, d'analyse des coûts et l'utilisation experte du tableur Excel."
   },
   {
     "id": "news-6",
-    "title": "Le Forum Économique du Tanganyika s'installe au campus de l'UNIKAL : débats intenses sur le désenclavement de Kalemie",
+    "title": "La Plateforme d'Étude remporte le tournoi inter-scolaire de football et de basket-ball de la Plateforme d'Étude",
     "date": "28 Février 2026",
-    "category": "Économie",
-    "excerpt": "Des décideurs économiques, des professeurs d'université et des experts de la Banque Mondiale débattent des clés du développement de la province.",
-    "content": "Pendant trois jours, l'Université de Kalemie est devenue la capitale économique de la province. Co-organisé par la Faculté de Sciences Économiques et de Gestion, ce forum de haut niveau a permis d'ébaucher des stratégies concrètes de désenclavement et d'investissement agricole.\n\nLes débats ont souligné le rôle central de l'UNIKAL comme incubateur de compétences et fournisseur d'analyses fiables pour les investisseurs s'intéressant à l'extraction minière éthique, à la logistique ferroviaire et portuaire de Kalemie et au tourisme lacustre."
+    "category": "Sport & Culture",
+    "excerpt": "Nos équipes de football (Garçons) et de basket-ball (Filles) ont soulevé le trophée provincial de la cohésion et de la fraternité.",
+    "content": "Une ambiance de fête a régné au terrain municipal de la Plateforme d'Étude. Les équipes de sport de la Plateforme d'Étude ont triomphé lors de la finale du championnat inter-scolaire de la Province du Tanganyika.\n\nLa victoire a été célébrée par une parade de joie dans l'enceinte de l'école. La Sœur Préfète a chaleureusement félicité les athlètes, reminding that academic and athletic excellence go hand in hand."
   }
 ]

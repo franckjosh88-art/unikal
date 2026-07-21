@@ -85,18 +85,18 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
   const validateInstitutionalEmail = (emailStr: string): boolean => {
     const suffix = emailStr.toLowerCase().split('@')[1];
     return suffix && (
-      suffix.endsWith('.edu') || 
-      suffix.endsWith('unik.cd') || 
-      suffix.endsWith('unikal.edu') || 
-      suffix.endsWith('isp-kalemie.edu') ||
+      suffix.endsWith('.org') || 
+      suffix.endsWith('lyceeamani.org') || 
+      suffix.endsWith('amani.org') || 
+      suffix.endsWith('.edu') ||
       suffix.includes('kalemie')
     );
   };
 
   const handleDemoLogin = (role: 'student' | 'teacher') => {
     const mockUser = role === 'teacher'
-      ? { id: 't1', name: 'Professeur A', email: 'professeur.a@unik.edu', role: 'teacher' as const, faculty: 'Sciences Appliquées & Polytechnique', department: 'Génie Informatique' }
-      : { id: 's1', name: 'Étudiant A', email: 'etudiant.a@unik.edu', role: 'student' as const, faculty: 'Sciences Appliquées & Polytechnique', department: 'Génie Informatique', studentId: 'UNIK-2025-0453' };
+      ? { id: 't1', name: 'Prof. Jean Bosco Kabulo', email: 'j.kabulo@lyceeamani.org', role: 'teacher' as const, faculty: 'Humanités Scientifiques', department: 'Physique-Chimie' }
+      : { id: 's1', name: 'Christian Mwamba', email: 'c.mwamba@lyceeamani.org', role: 'student' as const, faculty: 'Humanités Scientifiques', department: 'Physique-Chimie', studentId: 'AMANI-2025-0453' };
 
     onAuthSuccess(mockUser);
     onClose();
@@ -166,13 +166,13 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
 
       // Check institutional email format
       if (!validateInstitutionalEmail(email)) {
-        setError("Veuillez utiliser un email institutionnel valide pour l'Université de Kalemie (ex: @unik.edu, @unikal.edu, @isp-kalemie.edu etc.)");
+        setError("Veuillez utiliser un email valide pour le Lycée Amani (ex: @lyceeamani.org, @amani.org etc.)");
         setLoading(false);
         return;
       }
 
       if (registerRole === 'student' && !studentId) {
-        setError("Le numéro d'étudiant est requis (ex: UNIK-2025-XXXX).");
+        setError("Le numéro de dossier élève est requis (ex: AMANI-2025-XXXX).");
         setLoading(false);
         return;
       }
@@ -202,7 +202,7 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
         await setDoc(userDocRef, newProfile);
 
         if (registerRole === 'teacher') {
-          setSuccessMessage("Votre compte enseignant a été créé avec succès ! Cependant, votre accès est en attente de validation par l'administration d'UNIKAL E-Learning. Vous serez notifié dès son approbation.");
+          setSuccessMessage("Votre compte enseignant a été créé avec succès ! Cependant, votre accès est en attente de validation par l'administration du Lycée Amani. Vous serez notifié dès son approbation.");
           // Clear credentials so they can see the message
           setName('');
           setEmail('');
@@ -250,10 +250,10 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
         <div className="p-6 bg-gradient-to-r from-blue-900/35 to-slate-900 border-b border-slate-800">
           <div className="flex items-center gap-2 mb-1.5">
             <BookOpen className="w-6 h-6 text-blue-400" />
-            <span className="font-extrabold text-white text-md tracking-tight">UNIKAL E-Learning</span>
+            <span className="font-extrabold text-white text-md tracking-tight">Lycée Amani</span>
           </div>
           <p className="text-xs text-slate-400">
-            Portail académique de l'Université de Kalemie
+            Plateforme Numérique du Lycée Amani de Kalemie
           </p>
         </div>
 
@@ -501,7 +501,7 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
                           required
                           value={studentId}
                           onChange={e => setStudentId(e.target.value)}
-                          placeholder="Ex : UNIK-2025-0842"
+                          placeholder="Ex : AMANI-2025-0453"
                           className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-3 py-2.5 text-xs text-white focus:border-blue-500 focus:outline-none font-mono"
                         />
                       </div>
@@ -520,7 +520,7 @@ export default function RegisterView({ onClose, onAuthSuccess }: RegisterViewPro
                             required
                             value={matricule}
                             onChange={e => setMatricule(e.target.value)}
-                            placeholder="Ex : PROF-UNIKAL-904"
+                            placeholder="Ex : PROF-AMANI-103"
                             className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-3 py-2.5 text-xs text-white focus:border-blue-500 focus:outline-none font-mono"
                           />
                         </div>

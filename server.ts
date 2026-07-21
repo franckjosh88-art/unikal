@@ -298,11 +298,11 @@ Ce support de cours aborde les concepts essentiels concernant **${sanitizedTitle
 **Points Clés :**
 1. **Intégration d'outils durables** : Optimisation des ressources disponibles localement face aux coupures de réseau électrique régulières.
 2. **Architecture Simplifiée** : Utilisation d'indices optimisés pour garantir un temps d'exécution minimal.
-3. **Mise en Application Locale** : Adapter nos méthodologies aux problématiques réelles de Kalemie et Manono pour avoir un impact direct dès l'obtention du diplôme de Licence.
+3. **Mise en Application Locale** : Adapter nos méthodologies aux problématiques réelles de la Plateforme d'Étude et Manono pour avoir un impact direct dès l'obtention du diplôme de Licence.
 
 ---
 *💡 Muhtasari wa Swahili (Résumé en Swahili Tanganyika)*:
-Hati hii inafasiri masomo muhimu ya **${sanitizedTitle || "somo"}** kwa ufupi. Pointi tatu kuu ni kuboresha rasilimali zilizopo, kupunguza matumizi ya umeme, na kutatua matatizo ya jimbo la Tanganyika (Kalemie, Kongolo, Manono).`;
+Hati hii inafasiri masomo muhimu ya **${sanitizedTitle || "somo"}** kwa ufupi. Pointi tatu kuu ni kuboresha rasilimali zilizopo, kupunguza matumizi ya umeme, na kutatua matatizo ya jimbo la Tanganyika (la Plateforme d'Étude, Kongolo, Manono).`;
       return res.json({ text: fallbackSummary, simulated: true });
     }
 
@@ -458,7 +458,7 @@ Donne simplement la traduction brute, aucun bavardage introductif.`,
 
     if (!client) {
       // Return custom helpful answers tailored to educational topics
-      let fallbackText = `Chers étudiants de Kalemie et du Tanganyika, voici une explication sur votre sujet d'intérêt.
+      let fallbackText = `Chers élèves de la Plateforme d'Étude et du Tanganyika, voici une explication sur votre sujet d'intérêt.
 
 Dans notre environnement universitaire, l'assimilation des cours passe par un travail récurrent de rédaction de fiches et d'auto-évaluation.
 - **Réduction des données** : Profitez de la fonctionnalité d'enregistrement de cours PDF/Audio locaux pour économiser vos forfaits Internet.
@@ -520,7 +520,7 @@ Question de l'étudiant :
     try {
       const response = await client.models.generateContent({
         model: "gemini-2.0-flash",
-        contents: `Tu es un tuteur universitaire renommé de l'Université de Kalemie (UNIKAL).
+        contents: `Tu es un tuteur scolaire renommé de la Plateforme d'Étude.
 Génère une fiche de révision structurée sous forme de carte mémo pour le cours "${sanitizedCourseTitle}" portant spécifiquement sur le sujet : "${sanitizedTopic}".
 Fais en sorte qu'elle soit courte, extremely lisible (titres gras, puces claires) pour pouvoir être consultée sur l'écran d\'un smartphone de taille modeste.
 Ajoute quelques mots-clés bilingues (Français / Swahili) pour faciliter l'assimilation.`,

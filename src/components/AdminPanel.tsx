@@ -125,7 +125,7 @@ export default function AdminPanel({
         {/* Left Double-Column for User Accounts rows list */}
         <div id="admin-user-mgmt-panel" className="lg:col-span-2 space-y-6">
           
-          {/* Section: Publication d'Actualités UNIKAL */}
+          {/* Section: Publication d'Actualités Lycée Amani */}
           <AdminNewsForm />
           
           {/* Section: Demandes d'Enseignants en Attente */}
@@ -261,12 +261,12 @@ export default function AdminPanel({
                 />
               </div>
               <div>
-                <label className="block text-slate-400 mb-1">Email universitaire</label>
+                <label className="block text-slate-400 mb-1">Email professionnel</label>
                 <input 
                   type="email" 
                   value={newUserEmail} 
                   onChange={e => setNewUserEmail(e.target.value)} 
-                  placeholder="jp.mujinga@unikal.cd" 
+                  placeholder="jp.mujinga@lyceeamani.org" 
                   required
                   className="w-full bg-slate-850 border border-slate-700 rounded-lg px-3 py-1.5 text-white"
                 />

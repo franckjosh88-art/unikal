@@ -170,7 +170,7 @@ export default function AnnouncementsView({
           timestamp: new Date().toISOString(),
           recipientCount,
           status: 'success',
-          sender: 'smtp.firebase-trigger@unikal.ac.cd',
+          sender: 'smtp.firebase-trigger@plateformedetude.org',
           subject: `[ANONCE OFFICIELLE] ${annData.title}`
         };
         saveEmailLog(mockLog);
@@ -289,14 +289,14 @@ export default function AnnouncementsView({
   const getRoleLabel = (role: string) => {
     switch (role) {
       case 'admin':
-        return 'Administration Académique';
+        return 'Direction de la Plateforme d\'Étude';
       case 'responsable_departement':
-        return 'Chef de Département';
+        return 'Directeur des Études';
       case 'teacher':
       case 'enseignant':
         return 'Enseignant Approuvé';
       default:
-        return 'Membre UNIKAL';
+        return 'Communauté de la Plateforme d\'Étude';
     }
   };
 
@@ -313,9 +313,9 @@ export default function AnnouncementsView({
             <Megaphone className="w-6 h-6 animate-pulse" />
           </div>
           <div>
-            <h2 className="text-lg font-black text-slate-900">Annonces & Bulletins Académiques</h2>
+            <h2 className="text-lg font-black text-slate-900">Annonces & Communiqués Officiels</h2>
             <p className="text-xs text-slate-500">
-              Retrouvez les circulaires, plannings d'examens, alertes d'urgences et communications officielles de l'UNIKAL.
+              Retrouvez les circulaires, plannings d'examens, alertes scolaires et communiqués officiels de la Plateforme d'Étude.
             </p>
           </div>
         </div>
@@ -610,7 +610,7 @@ export default function AnnouncementsView({
                       {ann.targetAudience && (
                         <span className="px-2.5 py-1 bg-slate-100 text-slate-600 border border-slate-200 text-[10px] font-bold rounded-md flex items-center gap-1">
                           <Users className="w-3 h-3" />
-                          <span>Audience : {ann.targetAudience === 'tous' ? 'Tout UNIKAL' : ann.targetAudience === 'étudiants' ? 'Tous les Étudiants' : ann.targetAudience}</span>
+                          <span>Audience : {ann.targetAudience === 'tous' ? 'Toute la Plateforme d\'Étude' : ann.targetAudience === 'étudiants' ? 'Tous les Élèves' : ann.targetAudience}</span>
                         </span>
                       )}
 

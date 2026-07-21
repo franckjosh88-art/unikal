@@ -59,7 +59,7 @@ export default function AdmissionsView({ viewType, onBack, onNavigate }: Admissi
     e.preventDefault();
     // Generate a unique registration number for the student
     const randNum = Math.floor(10000 + Math.random() * 90000);
-    setRegId(`UNIKAL-2025-${randNum}`);
+    setRegId(`AMANI-2025-${randNum}`);
     setStep(4);
   };
 
@@ -149,15 +149,15 @@ export default function AdmissionsView({ viewType, onBack, onNavigate }: Admissi
         </div>
       )}
 
-      {/* VIEW TYPE: CALENDRIER ACADÉMIQUE */}
+      {/* VIEW TYPE: CALENDRIER SCOLAIRE */}
       {viewType === 'calendar' && (
         <div className="space-y-8">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-8 md:p-12 shadow-xl">
             <h1 className="text-2xl md:text-4xl font-black text-white flex items-center gap-2">
               <Calendar className="w-8 h-8 text-amber-400 shrink-0" />
-              <span>Calendrier Académique 2025-2026</span>
+              <span>Calendrier Scolaire 2025-2026</span>
             </h1>
-            <p className="text-slate-200 text-xs md:text-sm mt-3 max-w-2xl font-medium">Planifiez votre année universitaire avec le calendrier officiel fixé par le Comité de Gestion de l'UNIKAL.</p>
+            <p className="text-slate-200 text-xs md:text-sm mt-3 max-w-2xl font-medium">Planifiez votre année scolaire avec le calendrier officiel fixé par le Comité de Gestion du Lycée Amani.</p>
           </div>
 
           <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-xs space-y-8">
@@ -272,7 +272,7 @@ export default function AdmissionsView({ viewType, onBack, onNavigate }: Admissi
             </div>
 
             <p className="text-[11px] text-slate-400 italic pt-2">
-              Note : Tous les frais scolaires d'UNIKAL sont payés directement aux guichets de nos banques partenaires à Kalemie. Aucun versement en espèces n'est autorisé au secrétariat académique.
+              Note : Tous les frais scolaires du Lycée Amani sont payés directement aux guichets de nos banques partenaires à Kalemie. Aucun versement en espèces n'est autorisé au secrétariat de l'école.
             </p>
           </div>
         </div>
@@ -532,7 +532,7 @@ export default function AdmissionsView({ viewType, onBack, onNavigate }: Admissi
                       <span className="text-[10px] uppercase font-black text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Attestation de Pré-inscription</span>
                       <h3 className="text-xl font-black text-slate-900 tracking-tight">Félicitations, {regForm.firstName} !</h3>
                       <p className="text-xs text-slate-500 font-medium leading-relaxed">
-                        Votre dossier de candidature a été validé et enregistré par l'administration d'UNIKAL. Vous êtes pré-inscrit pour l'année 2025-2026.
+                        Votre dossier de candidature a été validé et enregistré par l'administration du Lycée Amani. Vous êtes pré-inscrit pour l'année 2025-2026.
                       </p>
                     </div>
 

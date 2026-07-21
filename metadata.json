@@ -1,6 +1,6 @@
 {
-  "name": "UNIKAL E-Learning",
-  "description": "Plateforme LMS moderne de gestion de l'apprentissage de l'Université de Kalemie (UNIKAL), optimisée pour connexion faible et usage mobile-first.",
+  "name": "Plateforme d'Étude",
+  "description": "Plateforme d'apprentissage numérique et de suivi scolaire moderne du Plateforme d'Étude de Plateforme d'Étude, inspirée de Moodle et optimisée pour faible bande passante.",
   "requestFramePermissions": [
     "camera",
     "microphone"

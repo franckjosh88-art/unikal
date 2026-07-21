@@ -75,7 +75,7 @@ export default function UmlDocsView() {
               Architecture Globale Alignée Tanganyika (RDC)
             </h2>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Pour résoudre l'instabilité de courant et la faiblesse du signal mobile (Réseau faible Edge/3G/H+) à Kalemie ou Manono, l'architecture d'UNIKAL E-Learning repose sur un paradigme de <strong>synchronisation locale différée (Database Queueing)</strong>.
+              Pour résoudre l'instabilité de courant et la faiblesse du signal mobile (Réseau faible Edge/3G/H+) à Kalemie ou Manono, l'architecture du portail du Lycée Amani repose sur un paradigme de <strong>synchronisation locale différée (Database Queueing)</strong>.
             </p>
 
             {/* Architecture schema layout block */}
@@ -141,7 +141,7 @@ export default function UmlDocsView() {
               <Database className="w-5 h-5 text-emerald-400" />
               Schéma Entités-Associations (MCD / MLD)
             </h2>
-            <p className="text-xs text-slate-400 leading-relaxed">Le schéma d'UNIKAL E-Learning repose sur des entités fortement normalisées, supportant des exports fluides entre PostgreSQL et Firestore NoSQL.</p>
+            <p className="text-xs text-slate-400 leading-relaxed">Le schéma du Lycée Amani repose sur des entités fortement normalisées, supportant des exports fluides entre PostgreSQL et Firestore NoSQL.</p>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-1 font-mono text-xs">
               

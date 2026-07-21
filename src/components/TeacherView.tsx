@@ -60,7 +60,7 @@ export default function TeacherView({
         </div>
         <h3 className="text-base font-extrabold text-white">Accès Réservé aux Enseignants</h3>
         <p className="text-xs text-slate-400 leading-relaxed">
-          Désolé, votre compte n'a pas les privilèges nécessaires. Seuls les professeurs agréés de l'Université de Kalemie peuvent accéder à cet espace de conception pédagogique et créer des quiz.
+          Désolé, votre compte n'a pas les privilèges nécessaires. Seuls les professeurs agréés de la Plateforme d'Étude peuvent accéder à cet espace de conception pédagogique et créer des quiz.
         </p>
       </div>
     );
@@ -373,7 +373,7 @@ export default function TeacherView({
         <div id="teacher-courses-section" className="space-y-6">
           <div className="flex justify-between items-center flex-wrap gap-4">
             <div>
-              <h2 className="text-xl font-bold text-slate-900">Vos Enseignements à l'Université de Kalemie</h2>
+              <h2 className="text-xl font-bold text-slate-900">Vos Enseignements à la Plateforme d'Étude</h2>
               <p className="text-xs text-slate-500 mt-1">Créez vos syllabus, ajoutez des chapitres et téléversez des supports d'étude.</p>
             </div>
             <button
@@ -1202,7 +1202,7 @@ export default function TeacherView({
                 <h3 className="text-base font-extrabold text-white">
                   Créer un Quiz d'Évaluation
                 </h3>
-                <p className="text-[11px] text-slate-400">Espace de conception interactive des quiz d'UNIKAL E-Learning</p>
+                <p className="text-[11px] text-slate-400">Espace de conception interactive des quiz de la Plateforme d'Étude</p>
               </div>
             </div>
 
@@ -1518,7 +1518,7 @@ export default function TeacherView({
 
                   {quizSuccess && (
                     <div className="text-[11px] font-mono text-emerald-400 bg-emerald-950/30 border border-emerald-800 p-3 rounded-xl text-center font-bold">
-                      ✓ Le Quiz a été créé et déployé avec succès sur UNIKAL E-Learning !
+                      ✓ Le Quiz a été créé et déployé avec succès sur la Plateforme d'Étude !
                     </div>
                   )}
 

@@ -17,7 +17,9 @@ import {
   Flame,
   User,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  BookMarked,
+  Trophy
 } from 'lucide-react';
 import facultiesData from '../data/faculties.json';
 import newsData from '../data/news.json';
@@ -29,30 +31,30 @@ interface SectionProps {
   onSelectFaculty?: (id: string) => void;
 }
 
-// 1. SECTION "POURQUOI UNIKAL"
-export function PourquoiUnikal() {
+// 1. SECTION "POURQUOI LE LYCÉE AMANI"
+export function PourquoiLycetAmani() {
   const points = [
     {
       title: "Excellence Académique",
-      desc: "Des professeurs chevronnés, des curricula modernisés conformes au système LMD pour une insertion professionnelle rapide.",
+      desc: "Un taux de réussite exceptionnel de 100% à l'Examen d'État et des cours interactifs conformes aux exigences modernes de l'enseignement.",
       icon: Award,
       color: "bg-blue-500/10 text-blue-900 border-blue-500/20"
     },
     {
-      title: "Cliniques Universitaires",
-      desc: "Une exclusivité UNIKAL offrant un cadre d'apprentissage clinique réel rattaché à notre Faculté des Sciences de la Santé.",
-      icon: Activity,
+      title: "Discipline & Rigueur",
+      desc: "Un encadrement moral, éthique et civique rigoureux inspiré des valeurs catholiques pour forger des citoyens intègres.",
+      icon: ShieldCheck,
       color: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20"
     },
     {
-      title: "Recherche de Pointe",
-      desc: "Des recherches appliquées adaptées au Tanganyika (écologie lacustre, pêche, économie transfrontalière).",
+      title: "Laboratoires Modernes",
+      desc: "Une formation pratique renforcée par notre nouveau laboratoire équipé de chimie et de physique pour les sciences appliquées.",
       icon: Sparkles,
       color: "bg-amber-500/10 text-amber-700 border-amber-500/20"
     },
     {
-      title: "Numérisation du Campus",
-      desc: "Une bibliothèque en ligne, des serveurs e-learning de secours, et une autonomie par énergie solaire.",
+      title: "Transition Numérique",
+      desc: "Une salle informatique autonome dotée de 120 ordinateurs solaires, d'une bibliothèque numérique locale et d'un portail LMS.",
       icon: Cpu,
       color: "bg-purple-500/10 text-purple-700 border-purple-500/20"
     }
@@ -62,9 +64,9 @@ export function PourquoiUnikal() {
     <section className="w-full py-16 px-4 md:px-8 bg-slate-50 font-sans">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Pourquoi choisir notre institution ?</span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Le Phare du Savoir du Tanganyika</h2>
-          <p className="text-sm text-slate-500 font-medium">L'Université de Kalemie unit l'exigence intellectuelle à la pratique professionnelle pour former la nouvelle génération de bâtisseurs.</p>
+          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Pourquoi choisir notre établissement ?</span>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Le Sommet de l'Éducation au Tanganyika</h2>
+          <p className="text-sm text-slate-500 font-medium">La Plateforme d'Étude unit la rigueur morale et intellectuelle à la technologie éducative pour former les élites de demain.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -86,15 +88,12 @@ export function PourquoiUnikal() {
   );
 }
 
-// 2. SECTION "NOS FACULTÉS"
+// 2. SECTION "NOS SECTIONS D'ÉTUDES"
 export function NosFacultes({ onNavigate }: SectionProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Activity': return Activity;
-      case 'TrendingUp': return TrendingUp;
-      case 'Scale': return Scale;
       case 'Cpu': return Cpu;
-      case 'Leaf': return Leaf;
+      case 'TrendingUp': return TrendingUp;
       case 'BookOpen': return BookOpen;
       default: return BookOpen;
     }
@@ -104,9 +103,9 @@ export function NosFacultes({ onNavigate }: SectionProps) {
     <section className="w-full py-16 px-4 md:px-8 bg-white border-y border-slate-100 font-sans">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">6 Facultés d'Excellence</span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Filières LMD Orientées Métiers</h2>
-          <p className="text-sm text-slate-500 font-medium">Découvrez nos facultés conçues pour offrir des connaissances pratiques, encadrées par des experts scientifiques du pays.</p>
+          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">3 Sections d'Excellence</span>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Des Filières d'Avenir</h2>
+          <p className="text-sm text-slate-500 font-medium">Découvrez nos trois sections officiellement agréées, encadrées par un corps professoral d'exception.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -120,12 +119,12 @@ export function NosFacultes({ onNavigate }: SectionProps) {
                   </div>
                   <div>
                     <h3 className="text-base font-black text-slate-900 group-hover:text-blue-900 transition-colors">{fac.title}</h3>
-                    <p className="text-[11px] font-mono text-blue-900 mt-1 font-bold">Licence & Master</p>
+                    <p className="text-[11px] font-mono text-blue-900 mt-1 font-bold">Enseignement Secondaire & Humanités</p>
                   </div>
                   <p className="text-xs text-slate-500 leading-relaxed font-medium">{fac.shortDescription}</p>
                 </div>
                 <div className="pt-6 border-t border-slate-100/60 mt-6 flex justify-between items-center text-xs">
-                  <span className="font-mono text-slate-400 font-semibold">{fac.stats.students} Étudiants</span>
+                  <span className="font-mono text-slate-400 font-semibold">{fac.stats.students} Élèves</span>
                   <button 
                     onClick={() => {
                       onNavigate(`faculty-${fac.id}`);
@@ -146,7 +145,7 @@ export function NosFacultes({ onNavigate }: SectionProps) {
   );
 }
 
-// 3. SECTION "MOT DU RECTEUR"
+// 3. SECTION "MOT DE LA PRÉFÈTE"
 export function MotDuRecteur({ onNavigate }: SectionProps) {
   const r = staffData.rector;
   return (
@@ -154,7 +153,7 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-950/40 via-slate-900/80 to-slate-950/70 z-0"></div>
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        {/* Photo du Recteur (Remplacée par une silhouette avec cadre doré) */}
+        {/* Photo de la Préfète (Cadre doré élégant) */}
         <div className="lg:col-span-5 flex justify-center">
           <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-amber-400 bg-slate-950 shadow-2xl shrink-0 flex flex-col items-center justify-center p-6 text-center group">
             <div className="p-5 bg-slate-900 border border-slate-800 rounded-full text-amber-400 mb-4 group-hover:scale-105 transition-transform duration-500">
@@ -170,10 +169,10 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
         {/* Message / Citation */}
         <div className="lg:col-span-7 space-y-6">
           <span className="inline-block px-3 py-1 text-[10px] font-black bg-amber-400 text-slate-950 rounded-full tracking-wider uppercase">
-            Le Mot de la Direction Générale
+            Mot d'Accueil de la Préfète
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight leading-tight">
-            Mot d'Accueil de Monsieur le Recteur
+            Bienvenue sur le portail numérique de la Plateforme d'Étude
           </h2>
           
           <div className="relative">
@@ -184,7 +183,7 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
           </div>
 
           <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-medium">
-            Fidèles à notre devise latine <strong className="text-amber-400">Scientia Splendet Conscientia</strong>, nous avons la ferme conviction que le savoir scientifique doit s'allier à des valeurs morales et une conscience humaniste. Nos six facultés, couvrant la santé, le droit, l'économie, les sciences appliquées, l'agronomie et les lettres, sont structurées pour répondre de manière pragmatique aux besoins de notre province du Tanganyika.
+            Fidèles à notre devise <strong className="text-amber-400">Paix, Travail, Excellence</strong>, nous croyons fermement à l'alliance de la rigueur morale, de la discipline chrétienne et des technologies modernes numériques pour préparer nos élèves à réussir brillamment les examens nationaux et à intégrer les meilleures filières d'avenir.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
@@ -195,7 +194,7 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
               }}
               className="px-6 py-3 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer inline-flex items-center gap-1.5 self-start shadow-md hover:scale-103"
             >
-              <span>Lire le message complet</span>
+              <span>Lire le message d'accueil</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -205,7 +204,7 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
               }}
               className="px-6 py-3 bg-white/5 hover:bg-white/15 border border-white/10 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer inline-flex items-center gap-1.5 self-start hover:scale-103"
             >
-              <span>Voir le Comité de Gestion</span>
+              <span>Voir le Comité de Direction</span>
             </button>
           </div>
         </div>
@@ -214,38 +213,38 @@ export function MotDuRecteur({ onNavigate }: SectionProps) {
   );
 }
 
-// 4. SECTION GALERIE PHOTO CAMPUS (AVEC LIGHTBOX)
+// 4. SECTION GALERIE PHOTO (AVEC LIGHTBOX)
 export function CampusGallery() {
   const images = [
     {
       src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=800",
-      title: "Bibliothèque Centrale d'UNIKAL",
-      desc: "Espace moderne connecté doté d'une alimentation solaire autonome."
+      title: "Bibliothèque Numérique Plateforme d'Étude",
+      desc: "Accès à des milliers de manuels scolaires et d'encyclopédies interactives."
     },
     {
-      src: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
-      title: "Cliniques Universitaires de Kalemie",
-      desc: "Pavillons d'apprentissage et de prise en charge hospitalière de premier plan."
+      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+      title: "Nouveau Laboratoire de Chimie et Physique",
+      desc: "Installations pratiques équipées pour la section Scientifique."
     },
     {
       src: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800",
-      title: "Salle Informatique d'Excellence",
-      desc: "120 postes de travail connectés à l'e-learning pour les étudiants."
-    },
-    {
-      src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
-      title: "Vie Associative & Conférences",
-      desc: "Rencontres d'étudiants d'Applied Sciences et d'Économie au Tanganyika."
+      title: "Salle Informatique Alimentée au Solaire",
+      desc: "120 ordinateurs légers connectés en réseau pour l'apprentissage du LMS."
     },
     {
       src: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800",
-      title: "Champs Expérimentaux d'Agronomie",
-      desc: "Travaux pratiques des étudiants agronomes pour la sécurité alimentaire."
+      title: "Mini-Entreprises de Gestion",
+      desc: "Exercices pratiques OHADA de simulation commerciale par nos terminales."
     },
     {
       src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
-      title: "Travaux Pratiques en Laboratoires",
-      desc: "Immersion scientifique guidée par nos techniciens de laboratoire d'analyses."
+      title: "Salles de Classe Aérées",
+      desc: "Un environnement d'apprentissage calme, propice à la concentration académique."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
+      title: "Activités Culturelles & Théâtre",
+      desc: "Clubs culturels et d'art oratoire pour stimuler l'éloquence de nos élèves."
     }
   ];
 
@@ -275,9 +274,9 @@ export function CampusGallery() {
     <section className="w-full py-16 px-4 md:px-8 bg-slate-50 border-b border-slate-100 font-sans">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Vie de Campus</span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Galerie Photo d'UNIKAL</h2>
-          <p className="text-sm text-slate-500 font-medium">Découvrez nos infrastructures modernes d'enseignement et nos espaces de vie estudiantine à Kalemie.</p>
+          <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Vie de l'Établissement</span>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Galerie Photo de l'Établissement</h2>
+          <p className="text-sm text-slate-500 font-medium">Découvrez notre campus, nos infrastructures de pointe et la vie animée de nos élèves à la Plateforme d'Étude.</p>
         </div>
 
         {/* Responsive grid */}
@@ -366,7 +365,7 @@ export function ActualitesRecentes({ onNavigate }: SectionProps) {
 
   const [allNews, setAllNews] = useState<any[]>(() => {
     try {
-      const saved = localStorage.getItem('unikal_news_list');
+      const saved = localStorage.getItem('amani_news_list');
       if (saved) {
         return sanitizeNewsList(JSON.parse(saved));
       }
@@ -381,7 +380,7 @@ export function ActualitesRecentes({ onNavigate }: SectionProps) {
   useEffect(() => {
     const handleStorageChange = () => {
       try {
-        const saved = localStorage.getItem('unikal_news_list');
+        const saved = localStorage.getItem('amani_news_list');
         if (saved) {
           setAllNews(sanitizeNewsList(JSON.parse(saved)));
         }
@@ -403,9 +402,9 @@ export function ActualitesRecentes({ onNavigate }: SectionProps) {
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-5">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Actualités Académiques</span>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight">Dernières Nouvelles d'UNIKAL</h2>
-            <p className="text-sm text-slate-500 font-medium">Suivez au quotidien l'actualité de nos facultés, de nos Cliniques Universitaires et de nos partenaires régionaux.</p>
+            <span className="text-xs font-black uppercase text-blue-900 tracking-widest bg-blue-100/60 px-3 py-1 rounded-full">Actualités de la Plateforme d'Étude</span>
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">Dernières Nouvelles</h2>
+            <p className="text-sm text-slate-500 font-medium">Suivez au quotidien l'actualité de nos sections, de nos laboratoires et de nos clubs sportifs.</p>
           </div>
           <button 
             onClick={() => {
@@ -419,7 +418,7 @@ export function ActualitesRecentes({ onNavigate }: SectionProps) {
           </button>
         </div>
 
-        {/* 6 news items grid */}
+        {/* news items grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allNews.slice(0, visibleCount).map((item) => (
             <div key={item.id} className="bg-slate-50/40 rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:bg-white shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full">
@@ -439,7 +438,7 @@ export function ActualitesRecentes({ onNavigate }: SectionProps) {
                 <div className="p-6 flex-1 flex flex-col space-y-3">
                   {!item.image && (
                     <div className="flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 bg-blue-900 text-white font-black text-[9px] uppercase tracking-wider rounded">
+                      <span className="px-2.5 py-0.5 bg-blue-950 text-white font-black text-[9px] uppercase tracking-wider rounded">
                         {item.category}
                       </span>
                     </div>
@@ -504,13 +503,12 @@ export function PartnerSlider() {
     <section className="w-full py-10 px-4 md:px-8 bg-slate-50 border-b border-slate-100 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="text-center">
-          <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Ils soutiennent l'Université de Kalemie</span>
+          <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Ils soutiennent la Plateforme d'Étude</span>
         </div>
 
         {/* Scrolling wrapper */}
         <div className="relative w-full overflow-hidden py-4">
           <div className="flex gap-8 md:gap-12 animate-marquee items-center whitespace-nowrap">
-            {/* Double list to achieve smooth infinite look */}
             {[...partnersData, ...partnersData].map((p, idx) => (
               <div 
                 key={idx} 
@@ -524,7 +522,6 @@ export function PartnerSlider() {
         </div>
       </div>
 
-      {/* Styled animation logic in react */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -543,10 +540,10 @@ export function PartnerSlider() {
   );
 }
 
-// 7. BANNIÈRE FLOTTANTE OU SECTION FIXE "ADMISSIONS OUVERTES" AVEC COMPTE À REBOURS
+// 7. BANNIÈRE "ADMISSIONS OUVERTES" AVEC COMPTE À REBOURS
 export function AdmissionsCountdown({ onNavigate }: SectionProps) {
   const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 45); // Set to 45 days from current time for beautiful live countdown!
+  targetDate.setDate(targetDate.getDate() + 45);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 45,
@@ -578,21 +575,20 @@ export function AdmissionsCountdown({ onNavigate }: SectionProps) {
 
   return (
     <section className="w-full bg-gradient-to-r from-blue-900 to-indigo-950 text-white py-12 px-6 md:px-8 font-sans relative overflow-hidden">
-      {/* Decorative pulse glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-3xl z-0 animate-pulse duration-5000"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
         
         <div className="space-y-3 text-center lg:text-left max-w-xl">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400 text-slate-950 font-black text-[10px] uppercase rounded-full tracking-widest tracking-wider animate-bounce">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400 text-slate-950 font-black text-[10px] uppercase rounded-full tracking-wider animate-bounce">
             <Flame className="w-3.5 h-3.5 fill-amber-950 text-amber-950 shrink-0" />
             <span>Admissions Ouvertes 2025-2026</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
-            Préparez votre avenir dès aujourd'hui !
+            Préparez l'avenir de votre enfant dès aujourd'hui !
           </h2>
           <p className="text-xs text-slate-300 font-medium leading-relaxed">
-            Les inscriptions sont officiellement ouvertes pour le premier semestre. Déposez votre candidature en ligne en moins de 10 minutes ou rejoignez l'UNIKAL au campus.
+            Les préinscriptions pour l'année scolaire 2025-2026 sont officiellement en cours. Inscrivez votre enfant en ligne en quelques clics ou déposez son dossier physique au secrétariat du lycée.
           </p>
         </div>
 
@@ -625,7 +621,7 @@ export function AdmissionsCountdown({ onNavigate }: SectionProps) {
               }}
               className="w-full sm:w-auto px-6 py-3 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-md hover:scale-105 cursor-pointer flex items-center justify-center gap-1.5"
             >
-              <span>S'inscrire Maintenant</span>
+              <span>S'inscrire en Ligne</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -645,7 +641,7 @@ export function AdmissionsCountdown({ onNavigate }: SectionProps) {
   );
 }
 
-// 8. FORMULAIRE D'ADMINISTRATION POUR AJOUTER UNE ACTUALITÉ UNIKAL
+// 8. FORMULAIRE D'ADMINISTRATION POUR AJOUTER UNE ACTUALITÉ
 interface AdminNewsFormProps {
   onNewsAdded?: () => void;
 }
@@ -664,13 +660,12 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
     // Get current news from localStorage
     let currentNews: any[] = [];
     try {
-      const saved = localStorage.getItem('unikal_news_list');
+      const saved = localStorage.getItem('amani_news_list');
       currentNews = saved ? JSON.parse(saved) : newsData;
     } catch (err) {
       currentNews = newsData;
     }
 
-    // Format today's date in French, e.g. "09 Juillet 2026"
     const months = [
       "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
       "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
@@ -691,13 +686,12 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
     const updatedNews = [newArticle, ...currentNews];
 
     try {
-      localStorage.setItem('unikal_news_list', JSON.stringify(updatedNews));
+      localStorage.setItem('amani_news_list', JSON.stringify(updatedNews));
       setSuccess(true);
       setTitle('');
       setExcerpt('');
       setContent('');
       
-      // Notify parent
       if (onNewsAdded) {
         onNewsAdded();
       }
@@ -715,15 +709,15 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
           <BookOpen className="w-4 h-4" />
         </div>
         <div>
-          <h4 className="text-white font-black uppercase tracking-wider text-[11px]">Publier une Actualité UNIKAL</h4>
-          <p className="text-[10px] text-slate-400">Ajouter un article sur la page d'accueil d'UNIKAL</p>
+          <h4 className="text-white font-black uppercase tracking-wider text-[11px]">Publier une Actualité</h4>
+          <p className="text-[10px] text-slate-400">Ajouter un article d'actualité pour la Plateforme d'Étude</p>
         </div>
       </div>
 
       {success && (
         <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl flex items-center gap-2 font-semibold">
           <CheckCircle className="w-4 h-4 shrink-0" />
-          <span>L'actualité a été publiée avec succès ! Elle apparaît désormais sur le site.</span>
+          <span>L'actualité a été publiée avec succès ! Elle apparaît sur la page d'accueil.</span>
         </div>
       )}
 
@@ -734,7 +728,7 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
             <input 
               type="text" 
               required
-              placeholder="Ex: Lancement des travaux de modernisation..."
+              placeholder="Ex: Inauguration de la salle d'informatique solaire..."
               value={title}
               onChange={e => setTitle(e.target.value)}
               className="w-full bg-slate-850 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none placeholder-slate-500 font-medium"
@@ -749,20 +743,21 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
               className="w-full bg-slate-850 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none font-medium"
             >
               <option value="Académique">Académique</option>
-              <option value="Clinique">Clinique</option>
-              <option value="Coopération">Coopération</option>
-              <option value="Recherche">Recherche</option>
+              <option value="Infrastructures">Infrastructures</option>
+              <option value="Innovation">Innovation</option>
+              <option value="Vie Scolaire">Vie Scolaire</option>
+              <option value="Sport & Culture">Sport & Culture</option>
             </select>
           </div>
         </div>
 
         <div className="space-y-1">
-          <label className="text-slate-400 font-bold block">Résumé Court (S'affiche dans les grilles/cartes)</label>
+          <label className="text-slate-400 font-bold block">Résumé Court</label>
           <textarea 
             required
             rows={2}
             maxLength={180}
-            placeholder="Un court paragraphe résumant l'événement académique ou l'annonce officielle..."
+            placeholder="Un paragraphe court pour la carte..."
             value={excerpt}
             onChange={e => setExcerpt(e.target.value)}
             className="w-full bg-slate-850 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none placeholder-slate-500 font-medium leading-relaxed"
@@ -774,7 +769,7 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
           <textarea 
             required
             rows={4}
-            placeholder="Écrivez ici l'intégralité de votre communiqué ou compte rendu..."
+            placeholder="Écrivez le communiqué détaillé..."
             value={content}
             onChange={e => setContent(e.target.value)}
             className="w-full bg-slate-850 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none placeholder-slate-500 font-medium leading-relaxed"
@@ -784,7 +779,7 @@ export function AdminNewsForm({ onNewsAdded }: AdminNewsFormProps) {
         <div className="flex justify-end pt-2">
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-555 text-white font-black uppercase tracking-wider px-6 py-2.5 rounded-xl transition-all shadow-md cursor-pointer flex items-center gap-2"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-wider px-6 py-2.5 rounded-xl transition-all shadow-md cursor-pointer flex items-center gap-2"
           >
             <span>Publier l'actualité</span>
           </button>

@@ -50,10 +50,10 @@ export default function CliniquesUniversitairesView({ onBack, onNavigate }: Clin
         <div className="relative z-10 space-y-4 max-w-3xl">
           <span className="px-3 py-1 bg-white/10 text-emerald-200 text-[10px] font-black uppercase tracking-wider rounded-full border border-white/10 inline-flex items-center gap-1.5">
             <Activity className="w-3.5 h-3.5" />
-            <span>Fleuron Hospitalier d'UNIKAL</span>
+            <span>Fleuron Hospitalier de la Plateforme d'Étude</span>
           </span>
           <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-            Cliniques Universitaires de Kalemie
+            Cliniques Universitaires de la Plateforme d'Étude
           </h1>
           <p className="text-emerald-100 text-xs md:text-sm leading-relaxed font-medium">
             Rattachées à la Faculté des Sciences de la Santé, nos Cliniques Universitaires unissent de manière indissociable la formation médicale de haut niveau, la recherche scientifique clinique et l'offre de soins de qualité supérieure pour les populations de la province du Tanganyika.
@@ -155,7 +155,7 @@ export default function CliniquesUniversitairesView({ onBack, onNavigate }: Clin
                 <div className="text-xs">
                   <span className="block font-black text-slate-900 leading-none mb-1">Localisation</span>
                   <span className="text-slate-500 leading-relaxed font-medium">
-                    Avenue des Cliniques, Quartier Kisebwe, Ville de Kalemie (face au campus UNIKAL).
+                    Avenue des Cliniques, Quartier Kisebwe, Ville de Plateforme d'Étude (face à la Plateforme d'Étude).
                   </span>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function CliniquesUniversitairesView({ onBack, onNavigate }: Clin
                 <div className="text-xs">
                   <span className="block font-black text-slate-900 leading-none mb-1">Assurances & Prises en Charge</span>
                   <span className="text-slate-500 leading-relaxed font-medium">
-                    Agréé pour les agents publics, entreprises de logistique de Kalemie, et conventions humanitaires.
+                    Agréé pour les agents publics, entreprises de logistique de la Plateforme d'Étude, et conventions humanitaires.
                   </span>
                 </div>
               </div>

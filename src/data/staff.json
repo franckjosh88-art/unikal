@@ -1,34 +1,34 @@
 {
   "rector": {
-    "name": "Professeur Victor Kalunga Tshikala",
-    "title": "Recteur de l'Université de Kalemie",
+    "name": "Révérente Sœur Marie-Thérèse Mwamba",
+    "title": "Sœur Préfète de la Plateforme d'Étude",
     "image": "",
-    "citation": "À l'Université de Kalemie, la science ne vaut que si elle s'accompagne d'une profonde conscience morale et humaine. Nous formons les architectes de l'avenir du Tanganyika et du Congo tout entier.",
-    "welcomeMessage": "Chers étudiants, chercheurs, partenaires et visiteurs,\n\nC'est avec une fierté renouvelée que je vous souhaite la bienvenue sur le portail officiel de l'Université de Kalemie (UNIKAL). Établie au cœur de la chef-lieu de la province du Tanganyika, en République Démocratique du Congo, notre université publique se dresse comme un phare d'excellence académique, d'innovation et d'engagement citoyen.\n\nFidèles à notre devise latine 'Scientia Splendet Conscientia', nous avons la ferme conviction que le savoir scientifique doit s'allier à des valeurs morales et une conscience humaniste. Nos six facultés, couvrant la santé, le droit, l'économie, les sciences appliquées, l'agronomie et les lettres, sont structurées pour répondre de manière pragmatique aux besoins socio-économiques de notre région et de notre pays.\n\nNotre spécificité majeure, nos Cliniques Universitaires, atteste de notre dévouement à allier enseignement de pointe et services indispensables à notre communauté. De même, nos partenariats inter-universitaires, notamment avec l'Université de Kinshasa (UNIKIN), renforcent notre excellence académique.\n\nQue vous soyez un bachelier désireux de bâtir un parcours universitaire d'exception, un chercheur à la recherche de synergies ou un partenaire institutionnel, sachez que l'UNIKAL est votre maison de savoir. Ensemble, faisons briller la lumière de la connaissance au bord du majestueux Lac Tanganyika.\n\nScientia Splendet Conscientia !"
+    "citation": "À la Plateforme d'Étude, notre mission est de guider chaque jeune vers le sommet de son potentiel intellectuel tout en ancrant en lui les valeurs sacrées de discipline, d'intégrité et d'amour du travail bien fait.",
+    "welcomeMessage": "Chers élèves, parents d'élèves, enseignants et partenaires,\n\nC'est avec une immense joie et une profonde gratitude que je vous souhaite la bienvenue sur la plateforme numérique et d'information officielle de la Plateforme d'Étude. Situé au chef-lieu de la province du Tanganyika en République Démocratique du Congo, notre établissement est un établissement d'excellence qui accompagne les générations d'élèves depuis de nombreuses décennies.\n\nFidèles à notre devise 'Paix, Travail, Excellence', nous croyons que l'éducation moderne doit savoir allier la rigueur de l'enseignement classique aux innovations pédagogiques du numérique. Nos trois sections — les Humanités Scientifiques, la section Commerciale et Gestion ainsi que la Pédagogie Générale — sont animées par un corps enseignant hautement qualifié, dévoué à offrir un encadrement personnalisé à chaque enfant.\n\nLe lancement de ce portail numérique et de notre bibliothèque interactive offre à nos élèves un accès continu au savoir, même en dehors des heures de classe, et permet aux parents de suivre en temps réel la progression scolaire, la discipline et les paiements de leurs enfants. C'est un outil majeur de cohésion et d'efficacité éducative pour tout notre écosystème.\n\nQue vous soyez un élève ambitieux, un parent soucieux de l'avenir de son enfant ou un visiteur curieux, vous trouverez ici les reflets d'une communauté scolaire vivante, disciplinée et résolument tournée vers l'avenir.\n\nPaix, Travail, Excellence !"
   },
   "managementCommittee": [
     {
-      "name": "Professeur Victor Kalunga Tshikala",
-      "role": "Recteur",
-      "description": "Responsable de la direction générale, académique et administrative de l'université.",
+      "name": "Révérente Sœur Marie-Thérèse Mwamba",
+      "role": "Préfète des Études",
+      "description": "Responsable de la direction générale, spirituelle, morale et financière de l'établissement.",
       "image": ""
     },
     {
-      "name": "Professeur Dr. Jean-Paul Kibwe",
-      "role": "Secrétaire Général Académique",
-      "description": "Supervise les programmes de formation, la planification pédagogique, les examens et le LMD.",
+      "name": "Monsieur l'Abbé Jean-Pierre Kasongo",
+      "role": "Directeur des Études (D.I.)",
+      "description": "Supervise les programmes scolaires, l'organisation pédagogique des classes et le suivi des Examens d'État.",
       "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
     },
     {
-      "name": "Professeur Philomène Mwange",
-      "role": "Secrétaire Général Administratif",
-      "description": "Gère le personnel enseignant, technique et administratif, ainsi que le patrimoine de l'institution.",
+      "name": "Madame Alphonsine Kabange",
+      "role": "Conseillère Pédagogique",
+      "description": "Accompagne les enseignants dans l'élaboration des fiches de préparation et anime les réunions de branches.",
       "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
     },
     {
-      "name": "Chef de Travaux Augustin Ilunga",
-      "role": "Administrateur de Budget",
-      "description": "Responsable de la planification financière, des budgets, de la comptabilité et des investissements logistiques.",
+      "name": "Monsieur Dieudonné Kitenge",
+      "role": "Directeur de Discipline (D.D.)",
+      "description": "Veille à l'application stricte du règlement intérieur, au respect des horaires, à la ponctualité et à la discipline globale.",
       "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
     }
   ]

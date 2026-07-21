@@ -20,10 +20,10 @@
   --text-muted: #64748b;
   --border-color: #e2e8f0;
   --accent-blue-bg: #eff6ff;
-  --accent-blue-text: #1d4ed8;
-  --accent-blue: #2563eb;
-  --accent-hover: #1d4ed8;
-  --bg-dark-elem: #0f172a;
+  --accent-blue-text: #0b3c88;
+  --accent-blue: #0b3c88;
+  --accent-hover: #082d66;
+  --bg-dark-elem: #0b3c88;
   --text-dark-elem: #ffffff;
   --input-bg: #ffffff;
   --input-border: #cbd5e1;
@@ -31,20 +31,20 @@
 
 /* Global Dark Theme variables */
 .dark, :root.dark {
-  --bg-primary: #0f172a;
-  --bg-card: #1e293b;
+  --bg-primary: #020617;
+  --bg-card: #0f172a;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
-  --border-color: #334155;
-  --accent-blue-bg: #1e3a8a;
-  --accent-blue-text: #60a5fa;
-  --accent-blue: #3b82f6;
-  --accent-hover: #60a5fa;
-  --bg-dark-elem: #1e293b;
+  --border-color: #1e293b;
+  --accent-blue-bg: #0c4a6e;
+  --accent-blue-text: #38bdf8;
+  --accent-blue: #38bdf8;
+  --accent-hover: #38bdf8;
+  --bg-dark-elem: #0f172a;
   --text-dark-elem: #f8fafc;
-  --input-bg: #1e293b;
-  --input-border: #475569;
+  --input-bg: #0f172a;
+  --input-border: #1e293b;
 }
 
 /* Base Body Styles for Geometric Balance */

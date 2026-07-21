@@ -37,18 +37,18 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
   const [activeHotspot, setActiveHotspot] = useState('central');
   const hotspots = {
     central: {
-      name: "Bâtiment Administratif & Auditoires",
-      desc: "Le cœur académique de l'UNIKAL, accueillant la direction générale, les bureaux facultaires, et les grands auditoires climatisés.",
+      name: "Bâtiment Administratif & Classes",
+      desc: "Le cœur administratif du Lycée Amani, accueillant la direction, les bureaux des enseignants, et les salles de cours de notre complexe scolaire.",
       image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200"
     },
     library: {
       name: "Bibliothèque Centrale & Salle Solaire",
-      desc: "Notre espace d'études moderne alimenté par panneaux solaires photovoltaïques autonomes, abritant plus de 10 000 ouvrages physiques et des terminaux e-learning.",
+      desc: "Notre espace d'études moderne alimenté par panneaux solaires photovoltaïques autonomes, abritant plus de 10 000 ouvrages physiques et des ordinateurs de lecture.",
       image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=1200"
     },
     clinics: {
-      name: "Cliniques Universitaires de Kalemie",
-      desc: "L'hôpital d'application pratique de l'UNIKAL, doté de pavillons de néonatalogie, maternité, urgences, bloc opératoire et imagerie médicale.",
+      name: "Clinique Partenaire de Kalemie",
+      desc: "L'hôpital partenaire d'application pratique du Lycée Amani, doté de pavillons de pédiatrie, maternité, urgences et bloc opératoire.",
       image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=1200"
     },
     agronomy: {
@@ -90,26 +90,26 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
       {viewType === 'unik' && (
         <div className="space-y-8">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-8 md:p-12 shadow-xl">
-            <h1 className="text-2xl md:text-4xl font-black text-white">L'Université de Kalemie (UNIKAL)</h1>
-            <p className="text-slate-200 text-xs md:text-sm max-w-2xl mt-3 font-medium">Institution publique d'enseignement supérieur d'excellence en RDC.</p>
+            <h1 className="text-2xl md:text-4xl font-black text-white">Le Lycée Amani de Kalemie</h1>
+            <p className="text-slate-200 text-xs md:text-sm max-w-2xl mt-3 font-medium">Établissement d'enseignement secondaire d'excellence au Tanganyika, RDC.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-xs space-y-6 text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
               <h2 className="text-lg font-black text-slate-900 border-b border-slate-50 pb-2">Historique et Vision</h2>
               <p>
-                Créée par arrêté ministériel pour répondre au besoin d'un enseignement supérieur de proximité au Tanganyika, l'Université de Kalemie est aujourd'hui une institution publique d'envergure. Elle regroupe des milliers d'étudiants répartis dans ses 6 facultés et formés par des professeurs de haut niveau.
+                Fondé pour répondre au besoin d'un enseignement secondaire d'excellence au Tanganyika, le Lycée Amani est aujourd'hui une institution scolaire d'envergure. Il regroupe de nombreux élèves répartis dans ses 3 sections d'études et encadrés par des enseignants hautement qualifiés.
               </p>
               <p>
-                L'UNIKAL s'est fixé comme mission d'être un centre de savoir à fort impact régional, formant des professionnels doués d'une grande conscience morale. Sa devise <strong className="text-blue-900">Scientia Splendet Conscientia</strong> guide l'ensemble des activités pédagogiques et de recherche de l'institution.
+                Le Lycée Amani s'est fixé comme mission d'être un centre d'apprentissage à fort impact régional, formant des citoyens accomplis doués d'une grande conscience civique et morale. Sa devise <strong className="text-blue-900">Paix, Travail, Excellence</strong> guide l'ensemble de nos activités scolaires.
               </p>
 
-              <h2 className="text-lg font-black text-slate-900 border-b border-slate-50 pb-2 pt-4">Nos Objectifs Académiques</h2>
+              <h2 className="text-lg font-black text-slate-900 border-b border-slate-50 pb-2 pt-4">Nos Objectifs Scolaires</h2>
               <ul className="space-y-3 pl-5 list-disc">
-                <li>Garantir une formation supérieure de premier choix, ancrée dans le système LMD.</li>
-                <li>Favoriser l'insertion professionnelle immédiate des lauréats.</li>
-                <li>Développer la recherche appliquée axée sur la résolution des défis de la province du Tanganyika (lac, agriculture, santé).</li>
-                <li>Incarner un pôle d'excellence en santé humaine grâce au soutien continu de nos Cliniques Universitaires.</li>
+                <li>Garantir un enseignement secondaire de premier choix, orienté vers la réussite aux examens nationaux.</li>
+                <li>Préparer efficacement nos élèves à intégrer les meilleures filières d'études supérieures.</li>
+                <li>Développer les compétences pratiques dans nos sections scientifiques et commerciales.</li>
+                <li>Promouvoir les valeurs de discipline, de paix et de rigueur intellectuelle.</li>
               </ul>
             </div>
 
@@ -205,22 +205,22 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
       {viewType === 'campus' && (
         <div className="space-y-8">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-8 md:p-12 shadow-xl">
-            <h1 className="text-2xl md:text-4xl font-black text-white">Notre Campus Universitaire</h1>
-            <p className="text-slate-200 text-xs md:text-sm mt-3 font-medium">Un cadre d'étude moderne et paisible sur les collines bordant le magnifique Lac Tanganyika.</p>
+            <h1 className="text-2xl md:text-4xl font-black text-white">Nos Infrastructures Scolaires</h1>
+            <p className="text-slate-200 text-xs md:text-sm mt-3 font-medium">Un cadre d'étude moderne et paisible sur les collines de Kalemie.</p>
           </div>
 
           <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-xs space-y-6 text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
             <h2 className="text-lg font-black text-slate-900 border-b border-slate-50 pb-2">Infrastructures d'Apprentissage</h2>
             <p>
-              Le campus principal d'UNIKAL est situé dans le Quartier Kisebwe de la ville de Kalemie. Il abrite les bâtiments administratifs, des salles de cours spacieuses adaptées au LMD, des laboratoires d'informatique et de chimie, et notre bibliothèque centrale.
+              Le complexe scolaire du Lycée Amani est situé dans le Quartier Kisebwe de la ville de Kalemie. Il abrite les bâtiments de la direction, des salles de cours spacieuses, des laboratoires de physique-chimie, une salle informatique moderne, et notre bibliothèque centrale.
             </p>
             <p>
-              Nos auditoires sont dotés de matériel de projection et d'une sonorisation pour un apprentissage qualitatif. Face au campus, les Cliniques Universitaires de Kalemie accueillent également les auditoires pratiques de notre Faculté des Sciences de la Santé.
+              Nos salles de classe sont spacieuses pour un apprentissage qualitatif. Le Lycée Amani dispose également de terrains de sport et d'espaces de vie scolaire modernes.
             </p>
 
             <h2 className="text-lg font-black text-slate-900 border-b border-slate-50 pb-2 pt-4">Autonomie Solaire et Connectivité</h2>
             <p>
-              Parce que la continuité de l'apprentissage est notre priorité, l'UNIKAL s'est dotée d'une centrale solaire photovoltaïque alimentant la salle informatique de 120 ordinateurs et la bibliothèque centrale. Les étudiants peuvent ainsi accéder à l'e-learning et à internet de manière ininterrompue de 8h à 18h.
+              Parce que la continuité de l'apprentissage est notre priorité, le Lycée Amani s'est doté d'une centrale solaire photovoltaïque alimentant la salle informatique et la bibliothèque centrale. Les élèves peuvent ainsi accéder aux ressources scolaires numériques et à internet de manière ininterrompue de 8h à 18h.
             </p>
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
       {viewType === 'virtual' && (
         <div className="space-y-8">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-8 md:p-12 shadow-xl">
-            <h1 className="text-2xl md:text-4xl font-black text-white">Visite Virtuelle du Campus 3D</h1>
+            <h1 className="text-2xl md:text-4xl font-black text-white">Visite Virtuelle des Infrastructures 3D</h1>
             <p className="text-slate-200 text-xs md:text-sm mt-3 font-medium">Explorez nos infrastructures à distance comme si vous y étiez. Sélectionnez un hotspot pour naviguer.</p>
           </div>
 
@@ -303,8 +303,8 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
       {viewType === 'contact' && (
         <div className="space-y-8">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-8 md:p-12 shadow-xl">
-            <h1 className="text-2xl md:text-4xl font-black text-white">Contact & Secrétariat Général</h1>
-            <p className="text-slate-200 text-xs md:text-sm mt-3 font-medium">Pour toute question administrative, académique, ou demande d'admission, l'administration d'UNIKAL est à votre écoute.</p>
+            <h1 className="text-2xl md:text-4xl font-black text-white">Contact & Administration</h1>
+            <p className="text-slate-200 text-xs md:text-sm mt-3 font-medium">Pour toute question administrative, scolaire, ou demande d'inscription, l'administration du Lycée Amani est à votre écoute.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -409,7 +409,7 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
                     <MapPin className="w-5 h-5 text-blue-900 shrink-0 mt-0.5" />
                     <div className="text-xs text-slate-600 leading-relaxed font-medium">
                       <span className="block font-black text-slate-900 leading-none mb-1">Campus Principal</span>
-                      <span>Avenue de l'Université, Quartier Kisebwe, Ville de Kalemie, Province du Tanganyika, RDC.</span>
+                      <span>Avenue de la Paix, Quartier Kalala, Ville de Kalemie, Province du Tanganyika, RDC.</span>
                     </div>
                   </div>
 
@@ -417,7 +417,7 @@ export default function AboutContactViews({ viewType, onBack, onNavigate }: Abou
                     <Mail className="w-5 h-5 text-blue-900 shrink-0 mt-0.5" />
                     <div className="text-xs text-slate-600 leading-relaxed font-medium">
                       <span className="block font-black text-slate-900 leading-none mb-1">Secrétariat Général</span>
-                      <a href="mailto:rectorat@unikal.ac.cd" className="text-blue-900 underline">rectorat@unikal.ac.cd</a>
+                      <a href="mailto:direction@lyceeamani.org" className="text-blue-900 underline">direction@lyceeamani.org</a>
                     </div>
                   </div>
 

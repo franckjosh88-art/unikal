@@ -5,7 +5,7 @@ export default function FloatingWhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean; time: string }>>([
     {
-      text: "Bonjour et bienvenue à l'Université de Kalemie (UNIKAL) ! 🎓 Comment pouvons-nous vous aider dans vos démarches aujourd'hui ? Secrétariat en ligne.",
+      text: "Bonjour et bienvenue sur le portail du Lycée Amani ! 🎓 Comment pouvons-nous vous aider aujourd'hui ? Secrétariat en ligne.",
       isUser: false,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
@@ -28,16 +28,16 @@ export default function FloatingWhatsAppButton() {
 
     // Generate smart simulated reply
     setTimeout(() => {
-      let replyText = "Merci pour votre message. Notre secrétariat académique prend note de votre demande. Vous pouvez aussi nous joindre au rectorat@unikal.ac.cd ou par téléphone au +243 81 037 0286. 🌟";
+      let replyText = "Merci pour votre message. Le secrétariat du Lycée Amani prend note de votre demande. Vous pouvez aussi nous joindre à contact@lyceeamani.org ou par téléphone au +243 81 037 0286. 🌟";
       
       if (typed.includes('inscri') || typed.includes('admiss') || typed.includes('dépos') || typed.includes('candidat')) {
-        replyText = "Les inscriptions pour l'année académique 2025-2026 sont ouvertes ! Vous pouvez déposer votre candidature directement en ligne en cliquant sur le bouton d'inscription de notre site. C'est rapide et sécurisé. 💻";
+        replyText = "Les inscriptions pour l'année scolaire 2025-2026 sont ouvertes ! Vous pouvez déposer votre candidature directement en ligne en cliquant sur le bouton d'inscription de notre site. C'est rapide et sécurisé. 💻";
       } else if (typed.includes('frais') || typed.includes('pay') || typed.includes('prix') || typed.includes('coût')) {
-        replyText = "Nos frais de scolarité annuels varient entre $280 et $380 selon la faculté d'orientation (médecine, agronomie, appliquée, etc.). Le paiement s'effectue en 3 tranches à la banque. Consultez notre page 'Admissions > Frais de Scolarité' pour plus de détails. 💰";
-      } else if (typed.includes('facult') || typed.includes('cours') || typed.includes('option') || typed.includes('fili')) {
-        replyText = "L'UNIKAL propose 6 facultés d'excellence sous le système LMD : Santé (avec Cliniques Universitaires), Économie & Gestion, Droit, Sciences Appliquées, Agronomie, et Lettres/Arts. Toutes nos filières sont agréées. 📚";
+        replyText = "Nos frais scolaires annuels varient entre $280 et $380 selon la section d'orientation (scientifique, commerciale, pédagogie). Le paiement s'effectue en 3 tranches à la banque. Consultez notre page 'Admissions > Frais de Scolarité' pour plus de détails. 💰";
+      } else if (typed.includes('facult') || typed.includes('cours') || typed.includes('option') || typed.includes('fili') || typed.includes('section')) {
+        replyText = "Le Lycée Amani propose 3 sections d'études d'excellence : Humanités Scientifiques, Commerciale et Gestion, et Pédagogie Générale. Toutes nos filières sont agréées. 📚";
       } else if (typed.includes('sante') || typed.includes('medecin') || typed.includes('clinique') || typed.includes('hopital')) {
-        replyText = "Notre Faculté de Médecine/Santé bénéficie du support direct des Cliniques Universitaires de Kalemie, notre hôpital d'application de pointe sur le campus. Un cadre unique dans la province ! 🏥";
+        replyText = "Nos sections d'études bénéficient de partenariats locaux de premier ordre, notamment avec les services de santé de Kalemie pour nos élèves des humanités scientifiques. 🏥";
       }
 
       const adminReply = {
@@ -60,10 +60,10 @@ export default function FloatingWhatsAppButton() {
           <div className="bg-emerald-600 text-white p-4 flex justify-between items-center shadow-md">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-slate-900 border-2 border-amber-400 flex items-center justify-center font-black text-xs shrink-0 select-none">
-                UNI
+                AMA
               </div>
               <div>
-                <h4 className="text-xs font-black tracking-wide">Secrétariat UNIKAL</h4>
+                <h4 className="text-xs font-black tracking-wide">Secrétariat Lycée Amani</h4>
                 <div className="flex items-center gap-1">
                   <span className="w-2 h-2 bg-emerald-300 rounded-full animate-ping"></span>
                   <span className="text-[10px] text-emerald-100 font-bold">Assistance en ligne</span>

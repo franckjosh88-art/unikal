@@ -5,117 +5,105 @@
 
 import { Course, LibraryItem, ForumTopic, ForumPost, Announcement, User, Assignment, Quiz } from './types';
 
-// Universités du Tanganyika sous-jacentes
+// Écoles secondaires de la Plateforme d'Étude
 export const UNIVERSITIES = [
-  { id: 'unikal', name: 'Université de Kalemie (UNIKAL)', city: 'Kalemie' },
-  { id: 'uniman', name: 'Université de Kongolo (UNIMAN)', city: 'Kongolo' },
-  { id: 'isp-kalemie', name: 'Institut Supérieur Pédagogique (ISP) Kalemie', city: 'Kalemie' },
-  { id: 'istm-kalemie', name: 'Institut Supérieur des Techniques Médicales (ISTM)', city: 'Kalemie' },
-  { id: 'uni-manono', name: 'Université de Manono', city: 'Manono' },
+  { id: 'lycee-amani', name: 'Plateforme d\'Étude', city: 'Plateforme d\'Étude' },
+  { id: 'college-st-albert', name: 'Collège Saint-Albert', city: 'Plateforme d\'Étude' },
+  { id: 'inst-kalemie', name: 'Institut de la Plateforme d\'Étude', city: 'Plateforme d\'Étude' },
+  { id: 'lycee-maendeleo', name: 'Lycée Maendeleo', city: 'Plateforme d\'Étude' },
 ];
 
 export const FACULTIES = [
-  'Sciences Agronomiques',
-  'Sciences Appliquées & Polytechnique',
-  'Droit & Sciences Politiques',
-  'Sciences Économiques & Gestion',
-  'Lettre & Sciences Humaines',
-  'Médecine & Santé Publique'
+  'Humanités Scientifiques',
+  'Commerciale et Gestion',
+  'Pédagogie Générale'
 ];
 
 export const INITIAL_USERS: User[] = [
-  { id: 's1', name: 'Étudiant A', email: 'etudiant.a@unik.edu', role: 'student', faculty: 'Sciences Appliquées & Polytechnique', department: 'Génie Informatique', studentId: 'UNIK-2025-0453' },
-  { id: 's2', name: 'Étudiant B', email: 'etudiant.b@unik.edu', role: 'student', faculty: 'Sciences Économiques & Gestion', department: 'Gestion Financière', studentId: 'UNIK-2025-0112' },
-  { id: 't1', name: 'Professeur A', email: 'professeur.a@unik.edu', role: 'teacher', faculty: 'Sciences Appliquées & Polytechnique', department: 'Génie Informatique' },
-  { id: 't2', name: 'Professeur B', email: 'professeur.b@unik.edu', role: 'teacher', faculty: 'Sciences Agronomiques', department: 'Phytotechnie' },
-  { id: 'p1', name: 'Parent A', email: 'parent.a@gmail.com', role: 'parent' }, // Parent de l'Étudiant A
-  { id: 'admin1', name: 'Administrateur A', email: 'administrateur.a@unik.edu', role: 'admin' }
+  { id: 's1', name: 'Élève Christian Mwamba', email: 'christian.mwamba@plateformedetude.org', role: 'student', faculty: 'Humanités Scientifiques', department: 'Option Physique-Chimie', studentId: 'PLATEFORME-DETUDE-2025-0453' },
+  { id: 's2', name: 'Élève Sarah Kitenge', email: 'sarah.kitenge@plateformedetude.org', role: 'student', faculty: 'Commerciale et Gestion', department: 'Option Commerciale & Administrative', studentId: 'PLATEFORME-DETUDE-2025-0112' },
+  { id: 't1', name: 'Professeur Jean Bosco Kabulo', email: 'jean.bosco@plateformedetude.org', role: 'teacher', faculty: 'Humanités Scientifiques', department: 'Option Physique-Chimie' },
+  { id: 't2', name: 'Professeur Aimé Ilunga', email: 'aime.ilunga@plateformedetude.org', role: 'teacher', faculty: 'Pédagogie Générale', department: 'Option Pédagogique' },
+  { id: 'p1', name: 'Parent Lambert Mwamba', email: 'lambert.mwamba@gmail.com', role: 'parent' }, // Parent de Christian Mwamba
+  { id: 'admin1', name: 'Sœur Marie-Thérèse Mwamba', email: 'prefecture@plateformedetude.org', role: 'admin' }
 ];
 
 export const INITIAL_COURSES: Course[] = [
   {
     id: 'c1',
-    code: 'POLY-201',
-    title: 'Algorithmique et Structures de Données',
-    description: 'Concepts de base de l\'algorithmique, complexité, structures de données linéaires (piles, files, listes) et arborescentes. Ce cours pose les fondations pour le développement de logiciels et d\'applications mobiles légères adaptées aux réseaux mobiles modestes du Tanganyika.',
-    faculty: 'Sciences Appliquées & Polytechnique',
-    department: 'Génie Informatique',
-    academicYear: 'Deuxième Licence LMD',
+    code: 'PHYS-401',
+    title: 'Physique Optique et Électricité Statique',
+    description: 'Concepts de base de l\'optique géométrique (lentilles convergentes, miroirs sphériques) et des phénomènes électrostatiques. Ce cours prépare rigoureusement les élèves de 4ème Scientifique aux épreuves théoriques et pratiques de l\'Examen d\'État national.',
+    faculty: 'Humanités Scientifiques',
+    department: 'Option Physique-Chimie',
+    academicYear: '4ème Scientifique (Terminale)',
     credits: 6,
     teacherId: 't1',
-    teacherName: 'Professeur A',
+    teacherName: 'Prof. Jean Bosco Kabulo',
     modules: [
       {
         id: 'c1-m1',
-        title: 'Chapitre 1 : Introduction à la Complexité Algorithmique',
+        title: 'Chapitre 1 : Lentilles Minces Convergentes et Divergentes',
         materials: [
-          { id: 'mat1', title: 'Support de Cours PDF - Complexité Algorithmique', type: 'pdf', url: '/pdf/intro_complexite.pdf', size: '1.2 MB' },
-          { id: 'mat2', title: 'Vidéo Introductive : Notation Grand O (Basse Résolution)', type: 'video', url: '/video/intro_o.mp4', duration: '12:45', size: '15.4 MB' }
+          { id: 'mat1', title: 'Support de Cours PDF - Formules de conjugaison et foyers', type: 'pdf', url: '/pdf/lentilles_convergentes.pdf', size: '1.2 MB' },
+          { id: 'mat2', title: 'Vidéo : Tracé de rayons lumineux et construction d\'images', type: 'video', url: '/video/optique_rayons.mp4', duration: '12:45', size: '15.4 MB' }
         ]
       },
       {
         id: 'c1-m2',
-        title: 'Chapitre 2 : Listes Chaînées, Piles et Files',
+        title: 'Chapitre 2 : Électrostatique - Loi de Coulomb et Champs Électriques',
         materials: [
-          { id: 'mat3', title: 'Slides de Présentation - Structures de données linéaires', type: 'presentation', url: '/slides/data_structures.pptx', size: '2.5 MB' },
-          { id: 'mat4', title: 'Audio de Récapitulatif de Séance (Faible Bande Passante)', type: 'audio', url: '/audio/recap_linear.ogg', duration: '05:30', size: '2.1 MB' }
-        ]
-      },
-      {
-        id: 'c1-m3',
-        title: 'Chapitre 3 : Arbres et Algorithmes de Tri',
-        materials: [
-          { id: 'mat5', title: 'Support de cours PDF - Arbres et Tris', type: 'pdf', url: '/pdf/arbres_tri.pdf', size: '1.8 MB' }
+          { id: 'mat3', title: 'Fiche Synthétique - Interactions de charges et potentiel', type: 'presentation', url: '/slides/electrostatique_coulomb.pptx', size: '2.5 MB' },
+          { id: 'mat4', title: 'Audio de Synthèse : Récapitulatif de cours de physique', type: 'audio', url: '/audio/recap_electrostatique.ogg', duration: '05:30', size: '2.1 MB' }
         ]
       }
     ]
   },
   {
     id: 'c2',
-    code: 'AGRO-305',
-    title: 'Pratiques Agro-pastorales durables au Tanganyika',
-    description: 'Étude des techniques culturales et d\'élevage optimisées pour les sols argilo-sableux de la plaine de Kalemie et du bassin du fleuve Congo à Kongolo. Analyse de la sécurité alimentaire locale, la lutte contre l\'érosion et l\'irrigation traditionnelle.',
-    faculty: 'Sciences Agronomiques',
-    department: 'Phytotechnie',
-    academicYear: 'Troisième Licence LMD',
+    code: 'COMPTA-305',
+    title: 'Comptabilité Générale et Système OHADA',
+    description: 'Étude approfondie de l\'enregistrement comptable des pièces de commerce, de l\'établissement du journal, du grand livre et de la balance. Ce cours forme les élèves de la section Commerciale et Gestion aux normes comptables harmonisées de l\'Afrique centrale.',
+    faculty: 'Commerciale et Gestion',
+    department: 'Option Commerciale & Administrative',
+    academicYear: '3ème Commerciale',
     credits: 5,
     teacherId: 't2',
-    teacherName: 'Professeur B',
+    teacherName: 'Prof. Aimé Ilunga',
     modules: [
       {
         id: 'c2-m1',
-        title: 'Chapitre 1 : Typologie des sols de Kalemie et Manono',
+        title: 'Chapitre 1 : Le Bilan d\'Ouverture et de Clôture',
         materials: [
-          { id: 'mat6', title: 'Manuel de Pédologie du Tanganyika', type: 'pdf', url: '/pdf/pedologie_tanganyika.pdf', size: '4.1 MB' }
+          { id: 'mat6', title: 'Structure du Bilan selon le plan comptable OHADA', type: 'pdf', url: '/pdf/bilan_ohada.pdf', size: '1.5 MB' }
         ]
       },
       {
         id: 'c2-m2',
-        title: 'Chapitre 2 : Aménagement des cultures sur berges (Bassin du Tanganyika)',
+        title: 'Chapitre 2 : Les Comptes de Gestion et les Écritures de Vente',
         materials: [
-          { id: 'mat7', title: 'Fiche technique de culture maraîchère locale', type: 'pdf', url: '/pdf/culture_maraichere_local.pdf', size: '850 KB' },
-          { id: 'mat8', title: 'Audio : Entretien avec les coopératives agricoles de Kongolo', type: 'audio', url: '/audio/coops_kongolo.mp3', duration: '15:20', size: '6.5 MB' }
+          { id: 'mat7', title: 'Fiche d\'exercices résolus : Facturation et TVA', type: 'pdf', url: '/pdf/exercices_tva_ohada.pdf', size: '850 KB' }
         ]
       }
     ]
   },
   {
     id: 'c3',
-    code: 'GÉO-401',
-    title: 'Géologie Minière et Gisements de Manono',
-    description: 'Étude structurale et lithologique des gisements de pegmatite lithinifère (Lithium, étain, coltan) de la région minière de Manono dans le Tanganyika. Évaluation géophysique et enjeux de l\'exploitation minière responsable face aux enjeux écologiques nationaux.',
-    faculty: 'Sciences Appliquées & Polytechnique',
-    department: 'Génie Géologique',
-    academicYear: 'Master 1',
+    code: 'CHIM-402',
+    title: 'Chimie Organique : Les Hydrocarbures',
+    description: 'Nomenclature, propriétés physiques, synthèses et réactions caractéristiques des alcanes, alcènes et alcynes. Ce cours met en évidence les applications industrielles en pétrochimie et la rigueur d\'analyse moléculaire attendue au baccalauréat congolais.',
+    faculty: 'Humanités Scientifiques',
+    department: 'Option Physique-Chimie',
+    academicYear: '4ème Scientifique (Terminale)',
     credits: 6,
     teacherId: 't1',
-    teacherName: 'Professeur A',
+    teacherName: 'Prof. Jean Bosco Kabulo',
     modules: [
       {
         id: 'c3-m1',
-        title: 'Chapitre 1 : Contexte Géologique Régional de la Ceinture de Kibara',
+        title: 'Chapitre 1 : Alcanes - Isomérie de chaîne et réactions de substitution',
         materials: [
-          { id: 'mat9', title: 'Pegmatites de Manono et géologie structurale', type: 'pdf', url: '/pdf/pegmatites_manono.pdf', size: '3.4 MB' }
+          { id: 'mat9', title: 'Cours complet PDF - Les Alcanes', type: 'pdf', url: '/pdf/chimie_alcanes.pdf', size: '3.4 MB' }
         ]
       }
     ]
@@ -126,78 +114,78 @@ export const INITIAL_ASSIGNMENTS: Assignment[] = [
   {
     id: 'a1',
     courseId: 'c1',
-    courseTitle: 'Algorithmique et Structures de Données',
-    title: 'Travail Pratique : Implémentation d\'une Liste doublement chaînée',
-    description: 'Écrire un algorithme complet (en pseudo-code ou Java / Python) pour implémenter une structure de liste doublement chaînée optimisée en mémoire. Incluez les fonctions d\'insertion au début, insertion à la fin, et suppression d\'un élément par index.',
+    courseTitle: 'Physique Optique et Électricité Statique',
+    title: 'Devoir : Détermination de la distance focale d\'une lentille convergente',
+    description: 'En utilisant la formule de conjugaison de Descartes (1/p\' - 1/p = 1/f\'), déterminez la position de l\'image d\'un objet situé à 20 cm devant une lentille convergente de distance focale f\' = 10 cm. Représentez le schéma optique à l\'échelle sur vos cahiers et téléversez la photo.',
     dueDate: '2026-06-30T18:00:00Z',
     points: 20
   },
   {
     id: 'a2',
     courseId: 'c2',
-    courseTitle: 'Pratiques Agro-pastorales durables au Tanganyika',
-    title: 'Rapport d\'analyse d\'une coopérative à Kalemie',
-    description: 'Visitez ou documentez une coopérative agricole de votre collectivité. Décrivez leurs méthodes d\'aménagement des cultures, la gestion de l\'eau en saison sèche, et les principaux défis liés au transport des récoltes vers les marchés urbains.',
+    courseTitle: 'Comptabilité Générale et Système OHADA',
+    title: 'Travail Pratique : Établissement de la Balance à 4 Colonnes',
+    description: 'Sur la base de la liste des opérations commerciales du mois de Mai fournie dans le document d\'exercices (achat de marchandises, paiement de transport, ventes à crédit), dressez le Grand Livre et établissez la Balance de vérification à 4 colonnes.',
     dueDate: '2026-07-05T23:59:00Z',
     points: 15,
     submitted: true,
     submissionDate: '2026-06-21T10:30:00Z',
-    submissionText: 'Rapport rédigé par l\'Étudiant A sur la coopérative maraîchère "Kenda" située sur les collines fertiles du lac Tanganyika. Nous avons analysé leur système d\'irrigation par gravité utilisant les petites rivières locales et mis en évidence un manque criant d\'entrepôts de réfrigération provoquant 40% de pertes post-récolte.',
-    grade: 14,
-    gradeFeedback: 'Très bon esprit synthétique. L\'analyse sur l\'irrigation par gravité est pertinente. Creusez davantage les alternatives de séchage solaire des fruits.'
+    submissionText: 'Rapport rédigé par l\'élève Christian Mwamba pour la comptabilité OHADA de la boutique d\'essai "Tanganyika Distribution". J\'ai équilibré les colonnes des débits et des crédits et vérifié que la somme des soldes débiteurs est égale à celle des soldes créditeurs (3.450.000 FC).',
+    grade: 18,
+    gradeFeedback: 'Excellent travail rigoureux ! Aucun centime d\'écart. Les libellés d\'écriture sont parfaits. Continuez sur cette lancée pour les Examens d\'État.'
   }
 ];
 
 export const INITIAL_QUIZZES: Quiz[] = [
   {
     id: 'q1',
-    courseId: 'c1',
-    courseTitle: 'Algorithmique et Structures de Données',
-    title: 'Quiz 1 : Complexité Temporelle & Notation Grand O',
-    description: 'Ce quiz évalue votre compréhension fondamentale de l\'analyse de la complexité des algorithmes récurrents étudiés lors du Chapitre 1.',
+    courseId: 'c3',
+    courseTitle: 'Chimie Organique : Les Hydrocarbures',
+    title: 'Quiz 1 : Nomenclature et réactivité des alcanes',
+    description: 'Ce quiz rapide évalue votre maîtrise des règles de nomenclature IUPAC, des isomères de constitution et des réactions d\'halogénation étudiées au Chapitre 1.',
     durationMinutes: 15,
     dueDate: '2026-06-28T20:00:00Z',
     questions: [
       {
         id: 'q1-1',
-        text: 'Quelle est la complexité d\'un algorithme de recherche binaire dans un tableau trié de taille N ?',
+        text: 'Quel est le nom de l\'hydrocarbure saturé linéaire comportant 5 atomes de carbone ?',
         type: 'mcq',
-        options: ['O(1)', 'O(log N)', 'O(N)', 'O(N log N)'],
-        correctOptionIndex: 1
+        options: ['Méthane', 'Propane', 'Pentane', 'Hexane'],
+        correctOptionIndex: 2
       },
       {
         id: 'q1-2',
-        text: 'Si un algorithme comporte deux boucles imbriquées dépendantes de la taille des données N, sa complexité asymptotique est typiquement :',
+        text: 'La formule générale brute d\'un alcane acyclique saturé est :',
         type: 'mcq',
-        options: ['O(N)', 'O(N log N)', 'O(N²)', 'O(2^N)'],
+        options: ['CnH2n', 'CnH2n-2', 'CnH2n+2', 'CnHn'],
         correctOptionIndex: 2
       },
       {
         id: 'q1-3',
-        text: 'La structure de données de Pile (Stack) obéit à quel principe d\'accès ?',
+        text: 'La réaction d\'un alcane avec du chlore en présence de lumière (UV) est une réaction de :',
         type: 'mcq',
-        options: ['FIFO (First In First Out)', 'LIFO (Last In First Out)', 'Accès Direct Aléatoire', 'Priorité Croissante'],
-        correctOptionIndex: 1
+        options: ['Substitution radicalaire', 'Addition électrophile', 'Élimination', 'Combustion incomplète'],
+        correctOptionIndex: 0
       }
     ]
   }
 ];
 
 export const INITIAL_LIBRARY: LibraryItem[] = [
-  { id: 'lib1', title: 'Évaluation des ressources hydriques de Kalemie et du Lac Tanganyika', author: 'Auteur A', type: 'tfc', year: 2024, institution: 'Université de Kalemie (UNIKAL)', faculty: 'Sciences Appliquées', size: '4.8 MB', downloadsCount: 245 },
-  { id: 'lib2', title: 'Impact du changement climatique sur la pêche artisanale de Ndakala', author: 'Auteur B', type: 'memoire', year: 2023, institution: 'Université de Kalemie (UNIKAL)', faculty: 'Sciences Agronomiques', size: '6.2 MB', downloadsCount: 189 },
-  { id: 'lib3', title: 'Manuel de Droit Foncier de la RDC : Enjeux fonciers ruraux au Tanganyika', author: 'Professeur C', type: 'livre', year: 2022, institution: 'Éditions Académiques Nationales d\'Afrique', faculty: 'Droit', size: '12.5 MB', downloadsCount: 312 },
-  { id: 'lib4', title: 'Analyse de l\'exploitation artisanale du coltan à Manono et impacts socio-économiques', author: 'Auteur D', type: 'memoire', year: 2024, institution: 'Université de Manono', faculty: 'Polytechnique', size: '5.4 MB', downloadsCount: 94 }
+  { id: 'lib1', title: 'Annales d\'Examens d\'État RDC - Chimie Pratique (2018-2025)', author: 'Inspection Provinciale Tanganyika', type: 'livre', year: 2025, institution: 'Plateforme d\'Étude', faculty: 'Humanités Scientifiques', size: '4.8 MB', downloadsCount: 312 },
+  { id: 'lib2', title: 'Précis de Pédagogie Générale et Psychologie de l\'Enfant', author: 'Sœurs de la Charité', type: 'livre', year: 2024, institution: 'Plateforme d\'Étude', faculty: 'Pédagogie Générale', size: '3.1 MB', downloadsCount: 245 },
+  { id: 'lib3', title: 'Manuel de Comptabilité Générale des Entreprises (OHADA Scolaire)', author: 'Ministère de l\'EPST', type: 'livre', year: 2023, institution: 'Éditions Scolaires Nationales RDC', faculty: 'Commerciale et Gestion', size: '12.5 MB', downloadsCount: 189 },
+  { id: 'lib4', title: 'Annales d\'Examens d\'État - Mathématiques et Physique', author: 'Comité Pédagogique de la Plateforme d\'Étude', type: 'livre', year: 2025, institution: 'Plateforme d\'Étude', faculty: 'Humanités Scientifiques', size: '5.4 MB', downloadsCount: 405 }
 ];
 
 export const INITIAL_ANNOUNCEMENTS: Announcement[] = [
   {
     id: 'ann1',
-    title: 'Report de la session d\'examen de rattrapage',
-    content: 'Chers étudiants, en raison de retards logistiques dans l\'acheminement du matériel de reprographie de Lubumbashi, la session extraordinaire de rattrapage est reportée d\'une semaine. Elle débutera le lundi 6 juillet 2026. Merci de votre compréhension.',
+    title: 'Lancement de la Session de Préparation Intensive à l\'Examen d\'État',
+    content: 'Chers élèves de 4ème (Terminale), les sessions d\'examens blancs provinciaux et les manipulations pratiques obligatoires au nouveau laboratoire de chimie débuteront ce lundi. La présence de tous les élèves finalistes est strictement requise dès 07h15 en uniforme officiel.',
     category: 'Examens',
     authorId: 'admin1',
-    authorName: 'Secrétariat Général Académique - UNIKAL',
+    authorName: 'Sœur Marie-Thérèse Mwamba - Préfète',
     authorRole: 'admin',
     targetAudience: 'tous',
     createdAt: '2026-06-22T08:00:00Z',
@@ -207,11 +195,11 @@ export const INITIAL_ANNOUNCEMENTS: Announcement[] = [
   },
   {
     id: 'ann2',
-    title: 'Disponibilité de l\'assistant IA UNIKAL E-Learning (Gratuit & Léger)',
-    content: 'Nous avons le plaisir d\'annoncer que l\'assistant de révision à base d\'intelligence artificielle Gemini est désormais accessible sur notre LMS. Il est spécialement optimisé pour fonctionner à faible consommation de données mobiles, permettant de résumer vos cours et de générer des quiz linguistiques en Français/Swahili sans saturer votre forfait Internet !',
+    title: 'Disponibilité de l\'assistant intelligent IA de la Plateforme d\'Étude (Gratuit & Hors-ligne)',
+    content: 'Le comité de gestion de l\'école est fier d\'annoncer que l\'assistant de révision Gemini AI est désormais intégré à notre portail numérique. Il permet de générer des questions de révision adaptées au programme de l\'EPST et de résumer vos cours. L\'assistant a été programmé pour être extrêmement léger afin d\'économiser les forfaits mobiles des familles.',
     category: 'Académique',
     authorId: 'admin1',
-    authorName: 'Administrateur A',
+    authorName: 'Administrateur de la Plateforme d\'Étude',
     authorRole: 'admin',
     targetAudience: 'tous',
     createdAt: '2026-06-20T14:30:00Z',
@@ -222,32 +210,32 @@ export const INITIAL_ANNOUNCEMENTS: Announcement[] = [
 ];
 
 export const INITIAL_FORUM_TOPICS: ForumTopic[] = [
-  { id: 'topic1', title: 'Meilleures pratiques pour compiler sur mobile (sans internet)', description: 'Chers camarades, comme l\'électricité et le réseau connaissent des interruptions au quartier Kituku, quelles applications légères Android utilisez-vous pour coder et compiler nos TPs d\'algorithmique en local hors-ligne ?', category: 'cours', courseId: 'c1', authorName: 'Étudiant A', createdAt: '2026-06-21T18:00:00Z', repliesCount: 2, viewsCount: 45 },
-  { id: 'topic2', title: 'Lancement du Club d\'Entrepreneuriat Agricole UNIKAL', description: 'Nous souhaitons regrouper des étudiants de plusieurs facultés (Agronomie, Gestion, Polytechnique) pour lancer des prototypes de fermes intelligentes ou cultures hydroponiques adaptées aux climats tropicaux humides.', category: 'partage', authorName: 'Étudiant B', createdAt: '2026-06-20T09:12:00Z', repliesCount: 1, viewsCount: 24 }
+  { id: 'topic1', title: 'Meilleurs trucs pour retenir la nomenclature des hydrocarbures acycliques', description: 'Bonjour chers camarades de la terminale scientifique, avez-vous des astuces mnémotechniques simples pour mémoriser l\'ordre des préfixes des premiers alcanes (méth, éth, prop, but, pent, hex...) pour le prochain QCM ?', category: 'cours', courseId: 'c1', authorName: 'Christian Mwamba', createdAt: '2026-06-21T18:00:00Z', repliesCount: 2, viewsCount: 45 },
+  { id: 'topic2', title: 'Lancement du Club d\'Émulation Scientifique et Robotique', description: 'Sous le patronage de la Sœur Préfète, nous créons un club scientifique pour concevoir de mini panneaux solaires mobiles et automatiser des circuits d\'éclairage économes pour le lycée.', category: 'partage', authorName: 'Sarah Kitenge', createdAt: '2026-06-20T09:12:00Z', repliesCount: 1, viewsCount: 24 }
 ];
 
 export const INITIAL_FORUM_POSTS: ForumPost[] = [
   {
     id: 'fp1',
     topicId: 'topic1',
-    authorName: 'Étudiant A',
+    authorName: 'Christian Mwamba',
     authorRole: 'student',
-    content: 'J\'utilise personnellement l\'application "Acode" disponible sur Android. Elle est gratuite, ultra-légère (7 MB) et me permet d\'écrire les algorithmes en Javascript/HTML pour tester la logique même sans réseau.',
+    content: 'Pour me souvenir des quatre premiers préfixes de chimie organique (Méthane, Éthane, Propane, Butane), j\'utilise la phrase "Maman Est Partie Bouder". Les initiales M, E, P, B m\'aident énormément !',
     createdAt: '2026-06-21T18:05:00Z',
     likes: 5,
     replies: [
       {
         id: 'fpr1',
-        authorName: 'Professeur A',
+        authorName: 'Prof. Jean Bosco Kabulo',
         authorRole: 'teacher',
-        content: 'Très bonne initiative. L\'éditeur Termux est aussi une excellente alternative en local pour exécuter des scripts Python ou compiler du C/C++ sans connexion. J\'apprécie ces astuces pour pallier les défis énergétiques de notre province.',
+        content: 'C\'est une excellente astuce de mémorisation Christian ! Je la conseillerai à tous les élèves lors du prochain cours pratique en laboratoire.',
         createdAt: '2026-06-22T08:45:00Z'
       },
       {
         id: 'fpr2',
-        authorName: 'Étudiant B',
+        authorName: 'Sarah Kitenge',
         authorRole: 'student',
-        content: 'Superbe astuce ! Je vais télécharger Acode et Termux la prochaine fois que je passe près de l\'antenne à l\'Université de Kalemie pour capter la 3G !',
+        content: 'Wow, merci Christian ! "Maman Est Partie Bouder" va sauver ma note de chimie organique ce vendredi !',
         createdAt: '2026-06-22T19:30:00Z'
       }
     ]
@@ -255,40 +243,40 @@ export const INITIAL_FORUM_POSTS: ForumPost[] = [
 ];
 
 export const INITIAL_MESSAGES = [
-  { id: 'msg1', senderId: 't1', senderName: 'Professeur A', senderRole: 'teacher', receiverId: 's1', content: 'Étudiant A, j\'ai beaucoup apprécié votre participation au cours d\'aujourd\'hui. Pensez à corriger les indices des boucles dans votre TP 1 avant de le soumettre.', createdAt: '2026-06-22T16:00:00Z', read: true },
-  { id: 'msg2', senderId: 's1', senderName: 'Étudiant A', senderRole: 'student', receiverId: 't1', content: 'Merci Professeur! Je vais revoir mon algorithme ce soir en utilisant la méthode hors-ligne. Je vous soumettrai le rapport révisé dès que la connexion le permettra.', createdAt: '2026-06-22T17:15:00Z', read: true }
+  { id: 'msg1', senderId: 't1', senderName: 'Prof. Jean Bosco Kabulo', senderRole: 'teacher', receiverId: 's1', content: 'Christian, j\'ai passé en revue la photo de ton exercice d\'optique sur les lentilles convergentes. Ton calcul est impeccable, mais assure-toi de tracer les lignes pointillées pour les foyers virtuels lors de l\'examen.', createdAt: '2026-06-22T16:00:00Z', read: true },
+  { id: 'msg2', senderId: 's1', senderName: 'Christian Mwamba', senderRole: 'student', receiverId: 't1', content: 'Merci beaucoup Professeur ! J\'ai téléchargé la fiche récapitulative d\'optique en mode hors-ligne pour la réviser ce soir et je referai le tracé propre.', createdAt: '2026-06-22T17:15:00Z', read: true }
 ];
 
 export const PARENT_LOGS_MAP: Record<string, any> = {
   'p1': {
-    studentName: 'Étudiant A',
-    studentId: 'UNIK-2025-0453',
-    attendanceRate: 96,
-    recentGradeAverage: 15.6,
+    studentName: 'Christian Mwamba',
+    studentId: 'PLATEFORME-DETUDE-2025-0453',
+    attendanceRate: 98,
+    recentGradeAverage: 16.5,
     recentActivity: [
-      'Présence confirmée au cours d\'Algorithmique (Mardi 23 Juin)',
-      'A obtenu un 14/20 pour le Rapport d\'analyse maraîchère (Professeur B)',
-      'A téléchargé le cours "Structures de données linéaires" en mode hors-ligne',
-      'A participé activement au Forum académique d\'Algorithmique'
+      'Présence confirmée au laboratoire de physique (Optique) (Mardi 23 Juin)',
+      'A obtenu 18/20 au travail pratique de comptabilité OHADA (Prof. Aimé Ilunga)',
+      'A téléchargé le manuel "Annales de Chimie Pratique (2018-2025)" pour révisions hors-ligne',
+      'A partagé une astuce de révision approuvée par le professeur sur le forum scolaire'
     ]
   }
 };
 
-// Architecture & UML details definitions for visual display
+// Architecture de la Plateforme d'Étude
 export const SYSTEM_DOCUMENTATION = {
   architecture: {
-    title: 'Architecture du Système UNIKAL E-Learning',
-    overview: 'UNIKAL E-Learning est conçu spécifiquement pour faire face aux contraintes réseau du Tanganyika (RDC). L\'architecture sépare de façon étanche le Client React (optimisé pour mobiles de gammes moyennes et connexions 2G/3G fluctuantes) du Serveur Node.js/Express, soutenu par une couche d\'Intelligence Artificielle server-side via l\'API Gemini.',
+    title: 'Architecture Logicielle de la Plateforme d\'Étude',
+    overview: 'La Plateforme d\'Étude numérique a été conçue pour surmonter les restrictions de connectivité et de bande passante dans la province du Tanganyika. Son architecture distribue de façon optimale le client léger React (optimisé pour les smartphones des familles) de l\'API d\'Intelligence Artificielle de secours animée par Gemini.',
     components: [
-      { name: 'Frontend React Mobile-First', desc: 'Rendu client léger, gestion fine du stockage cache local (localStorage) pour simuler et permettre l\'accès aux documents téléchargés et quiz en mode hors-ligne.' },
-      { name: 'Backend Express Server', desc: 'Sert l\'API REST, orchestre la base de données persistante de l\'apprentissage et prépare les fiches légères de données à destination des appareils mobiles.' },
-      { name: 'Couche IA Server-Side Gemini', desc: 'Interfacée avec le modèle ultra-efficace gemini-3.5-flash pour résumer des cours lourds sous forme de fiches de 2 Ko maximum, générer des quiz autonomes et servir d\'assistant multilingue.' },
-      { name: 'Database Model', desc: 'Inspiré d\'un modèle hybride Firestore / Relational (utilisant des schémas de collections isolés, conformes aux exigences d\'intégrité relationnelle).' }
+      { name: 'Portail Client Léger React.js', desc: 'Interface responsive animée par Tailwind CSS et Framer Motion, stockant en local les supports de cours et QCMs préchargés en cache pour garantir un mode hors-ligne strict.' },
+      { name: 'Serveur Académique Node.js', desc: 'Centralise les bases de données d\'évaluation, le suivi de discipline des élèves et distribue les fiches de cours décompressées et optimisées.' },
+      { name: 'Moteur IA Gemini Server-Side', desc: 'Modèle de traitement de texte qui convertit les annales d\'examens lourdes en mini fiches résumées textuelles de 2 Ko, idéales pour l\'envoi direct par SMS ou faible réseau.' },
+      { name: 'Bases de Données Intégrées', desc: 'Modèle hybride relationnel pour structurer les liens étroits entre élèves, enseignants, devoirs scolaires et bilans comptables OHADA.' }
     ],
     offlineOptimizations: [
-      'Faible consommation : Compression et nettoyage markdown des fiches produites par l\'IA.',
-      'Séquençage audio léger : Remplacement des vidéos par des audios de cours compressés d\'environ 1,5 MB.',
-      'Validation de données asynchrones : Soumission des devoirs mise en attente (queue) sur le client en cas de coupure réseau et synchronisation automatique au rétablissement du signal.'
+      'Bouton de préchargement : Téléchargement asynchrone des médias scolaires lors d\'une connexion wifi stable.',
+      'Compression audio de cours : Remplacement des vidéos lourdes par des enregistrements vocaux MP3/OGG de 1,5 MB.',
+      'Stockage hors-ligne strict : Résolution locale des QCMs et mise en attente de synchronisation automatique des copies dès reconnexion.'
     ]
   },
   umlClass: `
@@ -310,28 +298,27 @@ export const SYSTEM_DOCUMENTATION = {
                         |                                         |
                         | 1                                       | 0..*
                         |                                         v
-                        |                            +--------------------------+
-                        | 0..*                       |       CourseModule       |
-           +------------v------------+               +--------------------------+
-           |       ForumTopic        |               | - id: String             |
-           +-------------------------+               | - title: String          |
-           | - id: String            |               | - materials: Material[]  |
-           | - title: String         |               +--------------------------+
-           | - description: String   |                            | 1
-           | - category: String      |                            |
-           | - authorName: String    |                            | 0..*
-           +------------+------------+                            v
-                        |                            +--------------------------+
-                        | 1                          |      CourseMaterial      |
-                        |                                 (PDF/Video/Audio)     |
                         | 0..*                       +--------------------------+
-           +------------v------------+               | - id: String             |
-           |        ForumPost        |               | - title: String          |
-           +-------------------------+               | - type: MediaType        |
-           | - id: String            |               | - url: String            |
-           | - authorName: String    |               | - size: String           |
-           | - content: String       |               +--------------------------+
-           +-------------------------+
+           +------------v------------+               |       CourseModule       |
+           |       ForumTopic        |               +--------------------------+
+           +-------------------------+               | - id: String             |
+           | - id: String            |               | - title: String          |
+           | - title: String         |               | - materials: Material[]  |
+           | - description: String   |               +--------------------------+
+           | - category: String      |                            | 1
+           | - authorName: String    |                            |
+           +------------+------------+                            | 0..*
+                        |                                         v
+                        | 1                          +--------------------------+
+                        |                            |      CourseMaterial      |
+                        | 0..*                       |   (Fiche/Audio/Exos)     |
+           +------------v------------+               +--------------------------+
+           |        ForumPost        |               | - id: String             |
+           +-------------------------+               | - title: String          |
+           | - id: String            |               | - type: MediaType        |
+           | - authorName: String    |               | - url: String            |
+           | - content: String       |               | - size: String           |
+           +-------------------------+               +--------------------------+
 
            +-------------------------+               +--------------------------+
            |       Assignment        |               |           Quiz           |

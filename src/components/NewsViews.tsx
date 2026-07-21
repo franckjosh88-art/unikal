@@ -32,7 +32,7 @@ export default function NewsViews({ viewType, selectedNewsId, onBack, onNavigate
 
   const [allNews] = useState<any[]>(() => {
     try {
-      const saved = localStorage.getItem('unikal_news_list');
+      const saved = localStorage.getItem('amani_news_list');
       if (saved) {
         return sanitizeNewsList(JSON.parse(saved));
       }
@@ -172,7 +172,7 @@ export default function NewsViews({ viewType, selectedNewsId, onBack, onNavigate
                   <span>Publié le {selectedArticle.date}</span>
                 </div>
                 <span>•</span>
-                <span>Par Secrétariat Général UNIKAL</span>
+                <span>Par Secrétariat Général du Lycée Amani</span>
               </div>
             </div>
 

@@ -1,51 +1,37 @@
 [
   {
     "id": "partner-1",
-    "name": "Ministère de l'ESU - RDC",
+    "name": "Ministère de l'EPST - RDC",
     "type": "Gouvernemental",
-    "logoText": "MIN-ESU RDC",
-    "description": "Ministère de l'Enseignement Supérieur et Universitaire de la RDC"
+    "logoText": "MIN-EPST RDC",
+    "description": "Ministère de l'Enseignement Primaire, Secondaire et Technique de la RDC"
   },
   {
     "id": "partner-2",
     "name": "Gouvernement Provincial du Tanganyika",
     "type": "Local",
     "logoText": "PROVINCE TANGANYIKA",
-    "description": "Soutien financier et intégration des Cliniques Universitaires"
+    "description": "Soutien logistique et bourses d'excellence scolaire"
   },
   {
     "id": "partner-3",
-    "name": "Université de Kinshasa (UNIKIN)",
-    "type": "Académique",
-    "logoText": "UNIKIN RDC",
-    "description": "Coopération académique nationale, recherche scientifique conjointe et écoles doctorales"
+    "name": "UNICEF RDC - Tanganyika",
+    "type": "International",
+    "logoText": "UNICEF TANGANYIKA",
+    "description": "Appui à l'éducation des filles et kits scientifiques"
   },
   {
     "id": "partner-4",
-    "name": "Université de Lubumbashi (UNILU)",
-    "type": "Académique",
-    "logoText": "UNILU RDC",
-    "description": "Partenariat d'échange d'enseignants et de co-tutelles doctorales"
+    "name": "Congrégation des Sœurs de la Charité",
+    "type": "Religieux",
+    "logoText": "SŒURS DE LA CHARITÉ",
+    "description": "Gestion administrative et encadrement spirituel et moral"
   },
   {
     "id": "partner-5",
-    "name": "Organisation Mondiale de la Santé",
-    "type": "International",
-    "logoText": "OMS / WHO",
-    "description": "Soutien aux programmes de recherche de la Faculté des Sciences de la Santé"
-  },
-  {
-    "id": "partner-6",
-    "name": "FAO - Tanganyika",
-    "type": "International",
-    "logoText": "FAO - UN",
-    "description": "Projets de recherche agricole et sécurité alimentaire halieutique"
-  },
-  {
-    "id": "partner-7",
-    "name": "Banque Mondiale RDC",
-    "type": "International",
-    "logoText": "BANQUE MONDIALE",
-    "description": "Financement des infrastructures de numérisation de la bibliothèque"
+    "name": "Institut Supérieur Pédagogique (ISP) Plateforme d'Étude",
+    "type": "Académique",
+    "logoText": "ISP PLATEFORME D'ÉTUDE",
+    "description": "Coopération pour la formation des enseignants et l'encadrement des stages pédagogiques"
   }
 ]

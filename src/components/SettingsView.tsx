@@ -66,9 +66,9 @@ export default function SettingsView({
   // Profile local states
   const [editedName, setEditedName] = useState(currentUser.name);
   const [editedEmail, setEditedEmail] = useState(currentUser.email);
-  const [editedFaculty, setEditedFaculty] = useState(currentUser.faculty || "Faculté des Sciences");
-  const [editedDepartment, setEditedDepartment] = useState(currentUser.department || "Département de Géologie");
-  const [editedStudentId, setEditedStudentId] = useState(currentUser.studentId || "UNIKAL-2026-8942");
+  const [editedFaculty, setEditedFaculty] = useState(currentUser.faculty || "Humanités Scientifiques");
+  const [editedDepartment, setEditedDepartment] = useState(currentUser.department || "Option Physique-Chimie");
+  const [editedStudentId, setEditedStudentId] = useState(currentUser.studentId || "PLATEFORME-DETUDE-2025-0453");
 
   // Save feedbacks
   const [profileSaving, setProfileSaving] = useState(false);
@@ -81,12 +81,12 @@ export default function SettingsView({
   const [preloadStep, setPreloadStep] = useState("");
   const [preloadCompleted, setPreloadCompleted] = useState(false);
   const [autoPreloadStable, setAutoPreloadStable] = useState(() => {
-    return localStorage.getItem('unikal_auto_preload_stable') === 'true';
+    return localStorage.getItem('amani_auto_preload_stable') === 'true';
   });
 
   const handleToggleAutoPreload = (checked: boolean) => {
     setAutoPreloadStable(checked);
-    localStorage.setItem('unikal_auto_preload_stable', String(checked));
+    localStorage.setItem('amani_auto_preload_stable', String(checked));
     if ((window as any).showToast) {
       (window as any).showToast(
         checked 
@@ -138,9 +138,9 @@ export default function SettingsView({
             const libraryIds = {
               'lib1': true, 'lib2': true, 'lib3': true, 'lib4': true
             };
-            localStorage.setItem('unikal_downloaded_material_ids', JSON.stringify(materialIds));
-            localStorage.setItem('unikal_downloaded_library_item_ids', JSON.stringify(libraryIds));
-            window.dispatchEvent(new Event('unikal_cache_synced'));
+            localStorage.setItem('amani_downloaded_material_ids', JSON.stringify(materialIds));
+            localStorage.setItem('amani_downloaded_library_item_ids', JSON.stringify(libraryIds));
+            window.dispatchEvent(new Event('amani_cache_synced'));
           } catch (e) {
             console.error("Local storage cache write error:", e);
           }
@@ -168,13 +168,13 @@ export default function SettingsView({
   const l = (key: string): string => {
     const translations: Record<string, Record<string, string>> = {
       fr: {
-        profileTitle: "Profil & Informations Académiques",
-        profileDesc: "Gérez vos informations personnelles et identifiants UNIKAL E-Learning.",
+        profileTitle: "Profil & Informations Scolaires",
+        profileDesc: "Gérez vos informations personnelles et identifiants de la Plateforme d'Étude.",
         fullName: "Nom complet",
         email: "Adresse e-mail",
-        faculty: "Faculté d'affiliation",
-        department: "Département d'études",
-        studentId: "Numéro de matricule (ID académique)",
+        faculty: "Section d'étude",
+        department: "Option d'étude",
+        studentId: "Numéro de matricule (ID élève)",
         saveBtn: "Enregistrer les modifications",
         savedMsg: "Modifications enregistrées avec succès !",
         voiceTitle: "Accessibilité Vitesse & Synthèse Vocale",
@@ -205,11 +205,11 @@ export default function SettingsView({
       },
       sw: {
         profileTitle: "Profaili na Habari za Masomo",
-        profileDesc: "Simamia habari zako za kibinafsi na vitambulisho vya UNIKAL E-Learning.",
+        profileDesc: "Simamia habari zako za kibinafsi na vitambulisho vya Plateforme d'Étude.",
         fullName: "Jina Kamili",
         email: "Barua pepe",
-        faculty: "Kitivo (Faculty)",
-        department: "Idara ya Masomo",
+        faculty: "Sehemu ya Masomo (Section)",
+        department: "Chaguo la Masomo (Option)",
         studentId: "Namba ya Usajili (Matricule ID)",
         saveBtn: "Hifadhi mabadiliko",
         savedMsg: "Mabadiliko yamehifadhiwa vyema!",
@@ -262,7 +262,7 @@ export default function SettingsView({
       setProfileSaving(false);
       setProfileSavedSuccess(true);
       if ((window as any).showToast) {
-        (window as any).showToast("Profil universitaire mis à jour avec succès !", "success");
+        (window as any).showToast("Profil scolaire mis à jour avec succès !", "success");
       }
       setTimeout(() => setProfileSavedSuccess(false), 3000);
     }, 1000);
@@ -276,8 +276,8 @@ export default function SettingsView({
         synth.cancel(); // Stop talking first
 
         const sampleText = appLanguage === 'sw' 
-          ? "Huu ni jaribio la kusoma kwa sauti ya UNIKAL E-Learning. Mfumo upo tayari."
-          : "Ceci est un test audio interactif de la plateforme de formation UNIKAL E-Learning.";
+          ? "Huu ni jaribio la kusoma kwa sauti ya Plateforme d'Étude. Mfumo upo tayari."
+          : "Ceci est un test audio interactif de la plateforme de formation de la Plateforme d'Étude.";
         
         const utterance = new SpeechSynthesisUtterance(sampleText);
         utterance.lang = appLanguage === 'sw' ? 'sw-TZ' : 'fr-FR';
@@ -357,7 +357,7 @@ export default function SettingsView({
       setAutoDownloadOffline(false);
       
       setEditedName(currentUser.role === 'student' ? 'Étudiant' : 'Enseignant');
-      setEditedEmail(currentUser.role === 'student' ? 'student@unikal.ac' : 'teacher@unikal.ac');
+      setEditedEmail(currentUser.role === 'student' ? 'student@plateformedetude.org' : 'teacher@plateformedetude.org');
       
       if ((window as any).showToast) {
         (window as any).showToast("Réinitialisation des configurations effectuée !", "info");
@@ -595,7 +595,7 @@ export default function SettingsView({
                           : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-250 dark:border-slate-800 hover:bg-slate-50'
                       }`}
                     >
-                      Kiswahili (Kalemie)
+                      Kiswahili (Plateforme d'Étude)
                     </button>
                   </div>
                 </div>
@@ -830,7 +830,7 @@ export default function SettingsView({
                   <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div className="space-y-1">
                     <span className="text-xs font-bold text-amber-800 dark:text-amber-400 block">
-                      Pourquoi ces réglages sont cruciaux pour Kalemie ?
+                      Pourquoi ces réglages sont cruciaux pour la Plateforme d'Étude ?
                     </span>
                     <span className="text-[11px] text-slate-550 dark:text-slate-400 block leading-relaxed">
                       Les pylônes de télécommunication le long du lac Tanganyika subissent de fréquentes interruptions ou saturations de réseau. Activer le pré-chargement automatique permet à l'étudiant d'emporter son téléphone sur place et de faire tous ses QCM et cours hors-ligne de manière fluide d'un bout à l'autre de la province.
@@ -919,7 +919,7 @@ export default function SettingsView({
                                   (window as any).showToast("Restauration du backup effectuée avec succès !", "success");
                                 }
                               } else {
-                                alert("Format non valide pour UNIKAL E-Learning.");
+                                alert("Format non valide pour la Plateforme d'Étude.");
                               }
                             } catch (e) {
                               alert("Échec de la lecture du fichier JSON.");

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Compass, FileEdit, GraduationCap, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { Compass, FileEdit, GraduationCap, ChevronLeft, ChevronRight, Play, BookOpen, ShieldCheck, Sparkles, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface UnikalHeroProps {
@@ -9,19 +9,19 @@ interface UnikalHeroProps {
 export default function UnikalHero({ onNavigate }: UnikalHeroProps) {
   const slogans = [
     {
-      title: "Éclairer les esprits, bâtir l'avenir du Tanganyika",
-      subtitle: "L'Université de Kalemie forme les futurs leaders et innovateurs grâce à un enseignement supérieur de premier choix en RDC.",
-      tag: "EXCELLENCE & VALEURS"
+      title: "Éduquer pour la paix, le travail et l'excellence",
+      subtitle: "La Plateforme d'Étude forme les futurs cadres, ingénieurs et citoyens d'élite de la République Démocratique du Congo.",
+      tag: "DISCIPLINE & VALEURS"
     },
     {
-      title: "Le flambeau du savoir au cœur du bassin du Tanganyika",
-      subtitle: "Fidèles à notre devise 'Scientia Splendet Conscientia', nous allions la rigueur des sciences à la force de la conscience.",
-      tag: "TRADITION ACADÉMIQUE"
+      title: "Le flambeau de l'éducation d'élite au Tanganyika",
+      subtitle: "Un enseignement secondaire de prestige combiné à une éducation morale, éthique et civique rigoureuse.",
+      tag: "EXCELLENCE ACADÉMIQUE"
     },
     {
-      title: "Vers l'excellence scientifique par la conscience et la lumière",
-      subtitle: "Découvrez nos 6 facultés modernes, nos Cliniques Universitaires de pointe et nos projets de recherche d'impact mondial.",
-      tag: "INNOVATION & IMPACT"
+      title: "L'innovation numérique au service de la pédagogie",
+      subtitle: "Découvrez notre plateforme numérique intégrée, notre laboratoire de sciences de pointe et notre salle multimédia moderne.",
+      tag: "INNOVATION & NUMÉRIQUE"
     }
   ];
 
@@ -44,12 +44,12 @@ export default function UnikalHero({ onNavigate }: UnikalHeroProps) {
 
   return (
     <section className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-slate-950 text-white overflow-hidden font-sans">
-      {/* Background Image Overlay with deep Tanganyika Blue Gradient */}
+      {/* Background Image Overlay with deep Plateforme d'Étude Blue Gradient */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1920" 
-          alt="Campus UNIKAL" 
-          className="w-full h-full object-cover opacity-25 scale-105 animate-pulse duration-10000"
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=1920" 
+          alt="Plateforme d'Étude Campus" 
+          className="w-full h-full object-cover opacity-20 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-blue-950/90 to-slate-950/80"></div>
         {/* Subtle decorative grid overlay */}
@@ -68,7 +68,7 @@ export default function UnikalHero({ onNavigate }: UnikalHeroProps) {
             className="space-y-6"
           >
             {/* Tagline */}
-            <span className="inline-block px-3 py-1 text-[10px] md:text-xs font-black bg-amber-400 text-slate-950 rounded-full tracking-widest uppercase">
+            <span className="inline-block px-3.5 py-1 text-[10px] md:text-xs font-black bg-amber-400 text-slate-950 rounded-full tracking-widest uppercase">
               {slogans[currentIndex].tag}
             </span>
 
@@ -133,24 +133,28 @@ export default function UnikalHero({ onNavigate }: UnikalHeroProps) {
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Hero statistics bar */}
+      {/* Plateforme d'Étude statistics bar */}
       <div className="absolute bottom-0 left-0 right-0 bg-blue-900/95 border-t border-blue-950 py-4.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto grid grid-cols-4 text-center divide-x divide-blue-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-5 text-center divide-x divide-blue-800">
           <div>
-            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">6</span>
-            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Facultés d'Excellence</span>
+            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">1200+</span>
+            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Élèves Inscrits</span>
           </div>
           <div>
-            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">12 +</span>
-            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Filières LMD</span>
+            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">3</span>
+            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Sections d'Élite</span>
           </div>
           <div>
-            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">CU-Kalemie</span>
-            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Cliniques Universitaires</span>
+            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">45+</span>
+            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Enseignants Qualifiés</span>
           </div>
           <div>
-            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">2000+</span>
-            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Diplômés Actifs</span>
+            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">100% Solaire</span>
+            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Énergie Autonome</span>
+          </div>
+          <div>
+            <span className="block text-xl lg:text-2xl font-black text-amber-400 leading-none">5000+</span>
+            <span className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">Livres & Médias</span>
           </div>
         </div>
       </div>

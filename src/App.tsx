@@ -47,12 +47,13 @@ import UmlDocsView from './components/UmlDocsView';
 import AdminPanel from './components/AdminPanel';
 import SettingsView from './components/SettingsView';
 import TeacherView from './components/TeacherView';
+import StudentAccountView from './components/StudentAccountView';
 import RegisterView from './components/RegisterView';
 import UnikalHeader from './components/UnikalHeader';
 import UnikalFooter from './components/UnikalFooter';
 import UnikalHero from './components/UnikalHero';
 import { 
-  PourquoiUnikal, 
+  PourquoiLycetAmani, 
   NosFacultes, 
   MotDuRecteur, 
   ActualitesRecentes, 
@@ -267,7 +268,7 @@ export default function App() {
   const [commSubTab, setCommSubTab] = useState<'forum' | 'chat'>('forum');
   const [offlineMode, setOfflineMode] = useState<boolean>(false);
 
-  // UNIKAL Public Website states
+  // Plateforme d'Étude Public Website states
   const [isLmsPortalOpen, setIsLmsPortalOpen] = useState<boolean>(false);
   const [publicView, setPublicView] = useState<string>('home');
 
@@ -862,7 +863,7 @@ export default function App() {
 
   // Cache download tracers for low network weak signal simulation
   const [downloadedMaterialIds, setDownloadedMaterialIds] = useState<Record<string, boolean>>(() => {
-    const saved = localStorage.getItem('unikal_downloaded_material_ids');
+    const saved = localStorage.getItem('amani_downloaded_material_ids');
     if (saved) {
       try { return JSON.parse(saved); } catch (e) {}
     }
@@ -870,7 +871,7 @@ export default function App() {
   });
 
   const [downloadedLibraryItemIds, setDownloadedLibraryItemIds] = useState<Record<string, boolean>>(() => {
-    const saved = localStorage.getItem('unikal_downloaded_library_item_ids');
+    const saved = localStorage.getItem('amani_downloaded_library_item_ids');
     if (saved) {
       try { return JSON.parse(saved); } catch (e) {}
     }
@@ -879,28 +880,28 @@ export default function App() {
 
   // Persist download state changes
   useEffect(() => {
-    localStorage.setItem('unikal_downloaded_material_ids', JSON.stringify(downloadedMaterialIds));
+    localStorage.setItem('amani_downloaded_material_ids', JSON.stringify(downloadedMaterialIds));
   }, [downloadedMaterialIds]);
 
   useEffect(() => {
-    localStorage.setItem('unikal_downloaded_library_item_ids', JSON.stringify(downloadedLibraryItemIds));
+    localStorage.setItem('amani_downloaded_library_item_ids', JSON.stringify(downloadedLibraryItemIds));
   }, [downloadedLibraryItemIds]);
 
   // Sync state if another action changes localStorage (e.g. settings preloading)
   useEffect(() => {
     const handleStorageSync = () => {
-      const savedM = localStorage.getItem('unikal_downloaded_material_ids');
+      const savedM = localStorage.getItem('amani_downloaded_material_ids');
       if (savedM) {
         try { setDownloadedMaterialIds(JSON.parse(savedM)); } catch (e) {}
       }
-      const savedL = localStorage.getItem('unikal_downloaded_library_item_ids');
+      const savedL = localStorage.getItem('amani_downloaded_library_item_ids');
       if (savedL) {
         try { setDownloadedLibraryItemIds(JSON.parse(savedL)); } catch (e) {}
       }
     };
-    window.addEventListener('unikal_cache_synced', handleStorageSync);
+    window.addEventListener('amani_cache_synced', handleStorageSync);
     return () => {
-      window.removeEventListener('unikal_cache_synced', handleStorageSync);
+      window.removeEventListener('amani_cache_synced', handleStorageSync);
     };
   }, []);
 
@@ -1300,7 +1301,7 @@ export default function App() {
                 setPublicView(view);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }} />
-              <PourquoiUnikal />
+              <PourquoiLycetAmani />
               <NosFacultes onNavigate={(view) => {
                 setPublicView(view);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1571,6 +1572,12 @@ export default function App() {
           />
         )}
 
+        {activeTab === 'student-account' && (
+          <StudentAccountView 
+            onLogout={() => setIsLmsPortalOpen(false)}
+          />
+        )}
+
         {activeTab === 'announcements' && (
           <AnnouncementsView 
             currentUser={currentUser}
@@ -1697,7 +1704,7 @@ export default function App() {
             </div>
             <h2 className="text-xl font-extrabold text-white">Compte en cours de validation académique</h2>
             <p className="text-sm text-slate-405 leading-relaxed max-w-md mx-auto">
-              Bonjour <strong className="text-slate-200">{currentUser.name}</strong>. Votre inscription en tant que professeur à l'Université de Kalemie est actuellement en cours d'examen par la direction académique.
+              Bonjour <strong className="text-slate-200">{currentUser.name}</strong>. Votre inscription en tant que professeur à la Plateforme d'Étude est actuellement en cours d'examen par la direction académique.
             </p>
             <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800 text-left space-y-2.5 max-w-md mx-auto text-xs">
               <p className="font-semibold text-slate-300">Détails de votre demande :</p>
@@ -1721,10 +1728,10 @@ export default function App() {
             </div>
             <h2 className="text-xl font-extrabold text-white">Accès Rejeté / Révoqué</h2>
             <p className="text-sm text-slate-405 leading-relaxed max-w-md mx-auto">
-              Votre demande d'accès à l'espace enseignant d'UNIKAL E-Learning a été rejetée ou révoquée par l'administration académique.
+              Votre demande d'accès à l'espace enseignant de la Plateforme d'Étude a été rejetée ou révoquée par la direction.
             </p>
             <p className="text-xs text-slate-500">
-              Si vous pensez qu'il s'agit d'une erreur, veuillez contacter le secrétariat académique de votre faculté.
+              Si vous pensez qu'il s'agit d'une erreur, veuillez contacter la direction de l'école.
             </p>
           </div>
         )}
@@ -1765,7 +1772,7 @@ export default function App() {
                     </span>
                   </h3>
                   <p className="text-[10.5px] text-slate-400">
-                    Session d'apprentissage connectée à l'Université de Kalemie
+                    Session d'apprentissage connectée à la Plateforme d'Étude
                   </p>
                 </div>
               </div>

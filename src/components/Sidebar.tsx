@@ -69,7 +69,7 @@ export default function Sidebar({
 
   const menuItems = [
     { id: 'dashboard', label: 'Tableau de Bord', icon: BookMarked },
-    { id: 'announcements', label: 'Annonces Académiques', icon: Megaphone },
+    { id: 'announcements', label: 'Annonces Scolaires', icon: Megaphone },
     { id: 'courses', label: 'Espace Cours', icon: BookOpen },
     { id: 'assignments', label: 'Devoirs & Travaux', icon: Award },
     { id: 'quizzes', label: 'Quiz & Évaluations', icon: CheckSquare },
@@ -81,6 +81,10 @@ export default function Sidebar({
   ];
 
   const activeMenuItems = [...menuItems];
+  if (currentUser.role === 'student') {
+    // Insert after Dashboard
+    activeMenuItems.splice(1, 0, { id: 'student-account', label: 'Compte Étudiant (UNILAK)', icon: UserIcon });
+  }
   if (currentUser.role === 'teacher') {
     // Insert after Dashboard
     activeMenuItems.splice(1, 0, { id: 'teacher-space', label: 'Espace Professeur', icon: GraduationCap });
@@ -94,8 +98,8 @@ export default function Sidebar({
       {/* Brand Header */}
       <div id="sidebar-brand" className="p-6 border-b border-slate-800 flex items-center justify-between">
         <div className="flex flex-col">
-          <span className="text-xl font-bold tracking-tight text-blue-400 font-sans">UNIKAL E-Learning</span>
-          <span className="text-xs text-slate-500 font-mono tracking-widest uppercase mt-1">LMS Plateforme</span>
+          <span className="text-xl font-bold tracking-tight text-blue-400 font-sans">Lycée Amani</span>
+          <span className="text-xs text-slate-500 font-mono tracking-widest uppercase mt-1">Plateforme Numérique</span>
         </div>
         
         {/* Connection Toggle */}
@@ -286,7 +290,7 @@ export default function Sidebar({
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-sans text-sm font-bold text-amber-400 hover:bg-slate-800 hover:text-amber-300 mt-2 border border-amber-500/20"
           >
             <GraduationCap className="w-5 h-5 shrink-0 text-amber-400" />
-            <span>Retour au Site UNIKAL</span>
+            <span>Retour au Site Lycée Amani</span>
           </button>
         )}
       </nav>
